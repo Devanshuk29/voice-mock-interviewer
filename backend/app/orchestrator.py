@@ -9,36 +9,65 @@ SYSTEM_PROMPT = """You are a strict but fair technical interviewer at a top tech
 You are conducting a placement interview for a final-year computer science student.
 
 Your behaviour rules:
-- Ask one clear question at a time. Never ask two questions together.
-- After the student answers, evaluate their response internally.
-- If the answer is weak, vague, or incomplete: ask one specific follow-up to probe the exact gap.
-- If the answer is strong and complete: acknowledge briefly with "Okay." or "I see." and say you will move on.
-- Never give away the answer or explain the concept. Only probe with questions.
-- Never say "great", "good job", "excellent", or any encouraging words. Stay strictly neutral.
-- Keep all your responses under 3 sentences.
-- Do not break character under any circumstances."""
+- Ask one clear question at a time.
+- After the student answers, evaluate internally on: correctness, depth, and clarity.
+- If weak or incomplete: ask one targeted follow-up referencing something specific they said.
+- If strong: say "Okay, let's move on." and nothing else — do not provide a new question yet.
+- Never explain, teach, or give away the answer.
+- Never use encouraging words. Stay neutral.
+- Keep responses under 3 sentences.
+- Do not break character."""
 
-llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
-    api_key=os.getenv("GROQ_API_KEY"),
-    temperature=0.4,
-)
+class InterviewOrchestrator:
+    def __init__(self, domain: str, company: str = None, topics: list = None):
+        self.domain = domain
+        self.company = company
+        self.topics = topics or []
+        self.history = []
+        self.question_count = 0
+        self.max_questions = 8
+        self.llm = ChatGroq(
+            model="llama-3.3-70b-versatile",
+            api_key=os.getenv("GROQ_API_KEY"),
+            temperature=0.4,
+        )
 
-def get_response(conversation_history: list, user_message: str) -> str:
-    messages = [SystemMessage(content=SYSTEM_PROMPT)]
-    messages.extend(conversation_history)
-    messages.append(HumanMessage(content=user_message))
-    response = llm.invoke(messages)
-    return response.content
+    def add_to_history(self, role: str, content: str):
+        if role == "human":
+            self.history.append(HumanMessage(content=content))
+        else:
+            self.history.append(AIMessage(content=content))
+
+    def get_response(self, user_message: str) -> str:
+        messages = [SystemMessage(content=SYSTEM_PROMPT)]
+        messages.extend(self.history)
+        messages.append(HumanMessage(content=user_message))
+        response = self.llm.invoke(messages)
+        self.add_to_history("human", user_message)
+        self.add_to_history("ai", response.content)
+        return response.content
+
+    def should_move_on(self, response: str) -> bool:
+        move_on_phrases = ["let's move on", "move on", "next question", "okay.", "i see."]
+        return any(phrase in response.lower() for phrase in move_on_phrases)
+
+    def is_session_complete(self) -> bool:
+        return self.question_count >= self.max_questions
+
+    def reset(self):
+        self.history = []
+        self.question_count = 0
+
 
 if __name__ == "__main__":
-    history = []
+    agent = InterviewOrchestrator(domain="DSA")
     opening = "Let's begin. Can you explain how a hashmap works internally?"
     print(f"\nInterviewer: {opening}\n")
-    history.append(AIMessage(content=opening))
+    agent.add_to_history("ai", opening)
 
-    student_answer = "It stores key-value pairs and uses a hash function to find the index."
-    print(f"Student: {student_answer}\n")
-
-    reply = get_response(history, student_answer)
-    print(f"Interviewer: {reply}\n")
+    while True:
+        user_input = input("You: ").strip()
+        if user_input.lower() in ["quit", "exit"]:
+            break
+        response = agent.get_response(user_input)
+        print(f"\nInterviewer: {response}\n")
