@@ -1,0 +1,242 @@
+[
+  {
+    "id": "hr_001",
+    "question": "Tell me about yourself and why you are interested in this role.",
+    "domain": "HR",
+    "topic": "Introduction",
+    "subtopic": "Self Introduction",
+    "difficulty": "Easy",
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Structure: current situation, past experience, future goals",
+      "Tie personal strengths directly to the role requirements",
+      "Keep it under 2 minutes and confident",
+      "Avoid reading off resume; show genuine motivation for the company"
+    ]
+  },
+  {
+    "id": "hr_002",
+    "question": "Describe a situation where you had to work under pressure to meet a tight deadline.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Pressure Handling",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Use the STAR format: Situation, Task, Action, Result",
+      "Be specific about what the pressure was and your personal role",
+      "Highlight prioritization and communication under stress",
+      "Quantify the outcome wherever possible"
+    ]
+  },
+  {
+    "id": "hr_003",
+    "question": "Tell me about a time you disagreed with a team member and how you handled it.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Conflict Resolution",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Show maturity by focusing on the issue not the person",
+      "Describe how you listened to understand their perspective",
+      "Explain how you reached a resolution or escalated appropriately",
+      "Show the outcome was positive for the team or project"
+    ]
+  },
+  {
+    "id": "hr_004",
+    "question": "What is your greatest technical weakness and how are you actively working on it?",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Weaknesses",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Pick a real weakness that is not a core requirement of the job",
+      "Show genuine self awareness, not a disguised strength",
+      "Describe concrete steps you are taking to improve",
+      "Mention measurable progress you have already made"
+    ]
+  },
+  {
+    "id": "hr_005",
+    "question": "Where do you see yourself in five years?",
+    "domain": "HR",
+    "topic": "Career Goals",
+    "subtopic": "Long Term Vision",
+    "difficulty": "Easy",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show ambition while aligning with realistic growth at the company",
+      "Mention technical depth or leadership interest based on the role",
+      "Avoid vague answers or saying you want the interviewer's job",
+      "Connect your goals to why this company is the right place to achieve them"
+    ]
+  },
+  {
+    "id": "hr_006",
+    "question": "Describe a project you are most proud of and what your specific contribution was.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Achievements",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Be specific about your individual contribution, not just the team's work",
+      "Explain the technical challenge and how you solved it",
+      "Quantify the impact wherever possible",
+      "Show passion and ownership in how you describe it"
+    ]
+  },
+  {
+    "id": "hr_007",
+    "question": "Tell me about a time you failed at something. What did you learn from it?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Failure & Learning",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Choose a real failure that had meaningful stakes",
+      "Take clear ownership without deflecting blame",
+      "Explain specifically what you learned and changed afterwards",
+      "Show that the failure made you a better engineer or teammate"
+    ]
+  },
+  {
+    "id": "hr_008",
+    "question": "How do you prioritize tasks when you have multiple competing deadlines?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Time Management",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Describe a framework: urgency vs importance, stakeholder impact",
+      "Mention communicating early if deadlines are at risk",
+      "Give a concrete example of reprioritization under pressure",
+      "Show proactiveness rather than waiting to be told what to drop"
+    ]
+  },
+  {
+    "id": "hr_009",
+    "question": "Why do you want to work at this company specifically, and not a competitor?",
+    "domain": "HR",
+    "topic": "Motivation",
+    "subtopic": "Company Fit",
+    "difficulty": "Easy",
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show you have researched the company's products, culture, and mission",
+      "Connect specific things about the company to your personal goals",
+      "Avoid generic answers like good salary or brand name",
+      "Reference something recent about the company that genuinely excites you"
+    ]
+  },
+  {
+    "id": "hr_010",
+    "question": "Describe a time when you had to quickly learn a new technology or tool. How did you approach it?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Learning Agility",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Show a structured approach: docs first, then build a small project",
+      "Mention specific resources you used and how long it took",
+      "Highlight how you applied the new skill to deliver something",
+      "Emphasize curiosity and comfort with ambiguity"
+    ]
+  },
+  {
+    "id": "hr_011",
+    "question": "Tell me about a time you showed leadership without having a formal leadership title.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Leadership",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Show initiative by identifying a problem others were ignoring",
+      "Describe how you rallied teammates without authority",
+      "Focus on influence through communication and competence",
+      "Connect the outcome back to team or project success"
+    ]
+  },
+  {
+    "id": "hr_012",
+    "question": "How do you handle receiving critical feedback on your work?",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Feedback Reception",
+    "difficulty": "Easy",
+    "companies": ["Google", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show you separate your ego from your work",
+      "Describe listening fully before responding or defending",
+      "Give a specific example of acting on critical feedback",
+      "Show gratitude for feedback as a growth opportunity"
+    ]
+  },
+  {
+    "id": "hr_013",
+    "question": "Describe a time when you had to convince a skeptical stakeholder or team member to adopt your idea.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Influencing",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs", "Google"],
+    "strong_answer_hints": [
+      "Show you first understood their concern or objection deeply",
+      "Describe using data or a prototype to make your case concrete",
+      "Avoid making it about winning an argument; show collaboration",
+      "Highlight the outcome and what changed as a result"
+    ]
+  },
+  {
+    "id": "hr_014",
+    "question": "What motivates you day-to-day when working on a long or complex project?",
+    "domain": "HR",
+    "topic": "Motivation",
+    "subtopic": "Intrinsic Motivation",
+    "difficulty": "Easy",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Be specific and genuine rather than saying 'I love challenges'",
+      "Connect motivation to impact on users or the team",
+      "Mention milestones, learning, or ownership as concrete drivers",
+      "Show consistency between what you say motivates you and your past choices"
+    ]
+  },
+  {
+    "id": "hr_015",
+    "question": "Tell me about a time you had to work with a difficult team member. How did you manage it?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Teamwork",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Avoid badmouthing the person; stay professional and factual",
+      "Show empathy by trying to understand their perspective",
+      "Describe a specific action you took to improve the dynamic",
+      "Focus on what you learned about working with different personalities"
+    ]
+  },
+  {
+    "id": "hr_016",
+    "question": "How do you stay updated with the latest developments in technology?",
+    "domain": "HR",
+    "topic": "Self Development",
+    "subtopic": "Continuous Learning",
+    "difficulty": "Easy",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Mention specific resources: papers, blogs, podcasts, communities",
+      "Show you apply what you learn through side projects or experiments",
+      "Demonstrate curiosity by referencing something recent you explored",
+      "Avoid vague answers like 'I read tech news'"
+    ]
+  }
+]

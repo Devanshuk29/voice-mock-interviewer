@@ -1,0 +1,467 @@
+[
+  {
+    "id": "dsa_001",
+    "question": "Given a binary tree, find the lowest common ancestor of two given nodes.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Binary Trees",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Recursively traverse left and right subtrees",
+      "If current node equals p or q, return it",
+      "LCA is the node where both sides return non-null",
+      "Time O(N), Space O(H) where H is tree height"
+    ]
+  },
+  {
+    "id": "dsa_002",
+    "question": "Explain how you would detect a cycle in a linked list.",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Cycle Detection",
+    "difficulty": "Easy",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Use Floyd's cycle detection (slow and fast pointer)",
+      "Slow moves one step, fast moves two steps",
+      "If they meet, a cycle exists",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_003",
+    "question": "Given an array of integers, find two numbers that add up to a target sum.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Two Pointer / Hashing",
+    "difficulty": "Easy",
+    "companies": ["Google", "Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Use a hashmap to store complements while iterating",
+      "Check if target minus current element exists in map",
+      "Time O(N), Space O(N)",
+      "Mention the brute force O(N^2) tradeoff"
+    ]
+  },
+  {
+    "id": "dsa_004",
+    "question": "How would you find the maximum depth of a binary tree?",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Binary Trees",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Recursively compute depth of left and right subtree",
+      "Return 1 + max(left depth, right depth)",
+      "Base case: null node returns 0",
+      "Time O(N), Space O(H)"
+    ]
+  },
+  {
+    "id": "dsa_005",
+    "question": "Given a string, determine if it is a valid palindrome considering only alphanumeric characters.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Two Pointer",
+    "difficulty": "Easy",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Use two pointers from both ends",
+      "Skip non-alphanumeric characters",
+      "Compare characters case-insensitively",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_006",
+    "question": "Explain how you would find the longest substring without repeating characters.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Sliding Window",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Use sliding window with a hashset or hashmap of last seen index",
+      "Expand right pointer, shrink left pointer on duplicate",
+      "Track max window length seen",
+      "Time O(N), Space O(min(N, charset size))"
+    ]
+  },
+  {
+    "id": "dsa_007",
+    "question": "How would you implement a graph traversal using BFS? When would you prefer it over DFS?",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "BFS/DFS",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft", "Google"],
+    "strong_answer_hints": [
+      "Use a queue, mark nodes visited on enqueue",
+      "BFS finds shortest path in unweighted graphs",
+      "DFS is preferred for exploring all paths or detecting cycles",
+      "Time O(V+E), Space O(V)"
+    ]
+  },
+  {
+    "id": "dsa_008",
+    "question": "Given a set of intervals, merge all overlapping intervals.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Intervals",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Sort intervals by start time",
+      "Iterate and merge if current start <= previous end",
+      "Otherwise push as a new interval",
+      "Time O(N log N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_009",
+    "question": "Explain the difference between memoization and tabulation in dynamic programming.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "DP Fundamentals",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Memoization is top-down with recursion and caching",
+      "Tabulation is bottom-up using iterative table filling",
+      "Memoization can have recursion overhead, tabulation avoids it",
+      "Both reduce exponential time to polynomial by avoiding recomputation"
+    ]
+  },
+  {
+    "id": "dsa_010",
+    "question": "How would you solve the 0/1 Knapsack problem?",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Knapsack",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Build a DP table of items vs capacity",
+      "For each item, choose max(include, exclude)",
+      "dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w-weight[i]])",
+      "Time O(N*W), Space can be optimized to O(W)"
+    ]
+  },
+  {
+    "id": "dsa_011",
+    "question": "Given an unsorted array, find the kth largest element.",
+    "domain": "DSA",
+    "topic": "Sorting",
+    "subtopic": "Quickselect / Heaps",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon"],
+    "strong_answer_hints": [
+      "Use a min-heap of size k for O(N log K)",
+      "Or use Quickselect for average O(N)",
+      "Mention worst case O(N^2) for Quickselect without randomization",
+      "Compare tradeoffs between the two approaches"
+    ]
+  },
+  {
+    "id": "dsa_012",
+    "question": "Explain how a hashmap resolves collisions.",
+    "domain": "DSA",
+    "topic": "Hashing",
+    "subtopic": "Collision Resolution",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Chaining: store colliding entries in a linked list or tree per bucket",
+      "Open addressing: probe for the next free slot (linear/quadratic/double hashing)",
+      "Discuss load factor and resizing",
+      "Average O(1) lookup, worst case O(N) with poor hash distribution"
+    ]
+  },
+  {
+    "id": "dsa_013",
+    "question": "How would you check if a binary tree is balanced?",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Binary Trees",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Recursively compute height while checking balance",
+      "A tree is balanced if height difference of subtrees <= 1 at every node",
+      "Return -1 early if any subtree is unbalanced to avoid recomputation",
+      "Time O(N), Space O(H)"
+    ]
+  },
+  {
+    "id": "dsa_014",
+    "question": "Given a matrix, how would you rotate it 90 degrees in place?",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Matrix",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Transpose the matrix first",
+      "Then reverse each row",
+      "This achieves an in-place rotation without extra space",
+      "Time O(N^2), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_015",
+    "question": "Explain how Dijkstra's algorithm works for finding the shortest path.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Shortest Path",
+    "difficulty": "Hard",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Use a min-priority queue to always expand the closest unvisited node",
+      "Relax edges and update distances if a shorter path is found",
+      "Doesn't work correctly with negative weight edges",
+      "Time O((V+E) log V) with a binary heap"
+    ]
+  },
+  {
+    "id": "dsa_016",
+    "question": "Given a string, find all permutations of it.",
+    "domain": "DSA",
+    "topic": "Backtracking",
+    "subtopic": "Permutations",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Use backtracking by swapping characters or marking used indices",
+      "Build permutation character by character, backtrack on completion",
+      "Time O(N! * N) since there are N! permutations",
+      "Mention handling duplicate characters if asked"
+    ]
+  },
+  {
+    "id": "dsa_017",
+    "question": "How would you find the median of two sorted arrays?",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Binary Search",
+    "difficulty": "Hard",
+    "companies": ["Google", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Binary search on the smaller array to find correct partition",
+      "Ensure left partition elements <= right partition elements",
+      "Handle even/odd total length cases separately",
+      "Time O(log(min(N,M)))"
+    ]
+  },
+  {
+    "id": "dsa_018",
+    "question": "Explain topological sort and when it would be used.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Topological Sort",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon"],
+    "strong_answer_hints": [
+      "Used for DAGs to order nodes respecting dependencies",
+      "Can use Kahn's algorithm (BFS with in-degree) or DFS-based approach",
+      "Used in build systems, task scheduling, course prerequisites",
+      "Time O(V+E)"
+    ]
+  },
+  {
+    "id": "dsa_019",
+    "question": "Given a binary search tree, how would you validate that it is a valid BST?",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "BST",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon", "Google"],
+    "strong_answer_hints": [
+      "Recursively pass down valid min/max bounds for each node",
+      "Inorder traversal of a valid BST should be strictly increasing",
+      "Common mistake: only comparing with immediate children, not ancestors",
+      "Time O(N), Space O(H)"
+    ]
+  },
+  {
+    "id": "dsa_020",
+    "question": "How would you implement an LRU cache?",
+    "domain": "DSA",
+    "topic": "Design",
+    "subtopic": "Hashing + Linked List",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Use a hashmap for O(1) lookup combined with a doubly linked list for ordering",
+      "Move accessed nodes to front, evict from the back when capacity exceeded",
+      "Both get and put operations should be O(1)",
+      "Discuss why a simple array or single linked list wouldn't achieve O(1)"
+    ]
+  },
+  {
+    "id": "dsa_021",
+    "question": "Given an array, find the maximum sum of a contiguous subarray.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Kadane's Algorithm",
+    "difficulty": "Easy",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Use Kadane's algorithm tracking current sum and max sum",
+      "Reset current sum to 0 if it becomes negative",
+      "Time O(N), Space O(1)",
+      "Mention handling all-negative arrays as an edge case"
+    ]
+  },
+  {
+    "id": "dsa_022",
+    "question": "Explain how you would serialize and deserialize a binary tree.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Serialization",
+    "difficulty": "Hard",
+    "companies": ["Google", "Amazon"],
+    "strong_answer_hints": [
+      "Use preorder traversal with null markers for serialization",
+      "Use a queue or recursive pointer to rebuild during deserialization",
+      "Discuss tradeoffs vs BFS-based level order serialization",
+      "Time O(N) for both operations"
+    ]
+  },
+  {
+    "id": "dsa_023",
+    "question": "Given two strings, determine if one is an anagram of the other.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Hashing",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Use a frequency count array or hashmap for character counts",
+      "Compare counts between both strings",
+      "Alternative: sort both strings and compare",
+      "Time O(N) with hashmap vs O(N log N) with sorting"
+    ]
+  },
+  {
+    "id": "dsa_024",
+    "question": "How would you find all root-to-leaf paths in a binary tree that sum to a target value?",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Backtracking",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "DFS while tracking the running sum and current path",
+      "When a leaf is reached, check if running sum equals target",
+      "Backtrack by removing the node from path after exploring",
+      "Time O(N), Space O(H) for recursion stack"
+    ]
+  },
+  {
+    "id": "dsa_025",
+    "question": "Explain quicksort and analyze its time complexity in the best, average, and worst case.",
+    "domain": "DSA",
+    "topic": "Sorting",
+    "subtopic": "Quicksort",
+    "difficulty": "Medium",
+    "companies": ["Google", "Goldman Sachs", "Microsoft"],
+    "strong_answer_hints": [
+      "Partition around a pivot, recursively sort each side",
+      "Best/average case O(N log N) with balanced partitions",
+      "Worst case O(N^2) when pivot is always smallest/largest (e.g. sorted input)",
+      "Mention randomized pivot selection to avoid worst case"
+    ]
+  },
+  {
+    "id": "dsa_026",
+    "question": "Given a grid of 1s and 0s, count the number of islands.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Connected Components",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Use DFS or BFS to mark all connected land cells as visited",
+      "Increment island count each time a new unvisited land cell is found",
+      "Time O(rows*cols), Space O(rows*cols) for visited tracking or recursion stack",
+      "Mention iterative DFS with a stack to avoid recursion limits"
+    ]
+  },
+  {
+    "id": "dsa_027",
+    "question": "How would you design a data structure that supports insert, delete, and getRandom in O(1)?",
+    "domain": "DSA",
+    "topic": "Design",
+    "subtopic": "Hashing + Arrays",
+    "difficulty": "Hard",
+    "companies": ["Google", "Amazon"],
+    "strong_answer_hints": [
+      "Use a dynamic array for O(1) random access plus a hashmap of value to index",
+      "On delete, swap target with last element then pop, update hashmap",
+      "This avoids O(N) shifting that a plain array delete would require",
+      "All three operations average O(1)"
+    ]
+  },
+  {
+    "id": "dsa_028",
+    "question": "Explain the difference between BFS and DFS for tree and graph traversal, including their space complexity.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "BFS/DFS",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "BFS uses a queue and explores level by level",
+      "DFS uses a stack or recursion and explores depth first",
+      "BFS space complexity relates to the widest level, DFS relates to depth",
+      "Choice depends on whether shortest path or exhaustive search is needed"
+    ]
+  },
+  {
+    "id": "dsa_029",
+    "question": "Given a number, find if it is a power of two using bit manipulation.",
+    "domain": "DSA",
+    "topic": "Bit Manipulation",
+    "subtopic": "Bitwise Tricks",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "A power of two has exactly one set bit",
+      "Use n & (n-1) == 0 to check, with n > 0 guard",
+      "Explain why n & (n-1) clears the lowest set bit",
+      "Time O(1)"
+    ]
+  },
+  {
+    "id": "dsa_030",
+    "question": "How would you implement a trie and what problems is it useful for?",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Trie",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon"],
+    "strong_answer_hints": [
+      "Each node has children mapped by character, plus an end-of-word flag",
+      "Useful for prefix search, autocomplete, and dictionary lookups",
+      "Insert and search are O(L) where L is word length",
+      "Compare space tradeoffs vs a hashset of words"
+    ]
+  },
+  {
+    "id": "dsa_031",
+    "question": "Given a sorted rotated array, how would you search for a target value?",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Binary Search",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Modified binary search: determine which half is sorted",
+      "Check if target lies within the sorted half's range",
+      "Narrow search space accordingly each iteration",
+      "Time O(log N)"
+    ]
+  }
+]

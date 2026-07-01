@@ -1,0 +1,257 @@
+[
+  {
+    "id": "sd_001",
+    "question": "Design a parking lot system. What classes and relationships would you define?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Parking Lot",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Identify core entities: ParkingLot, Level, ParkingSpot, Vehicle, Ticket",
+      "Use inheritance for Vehicle types (Car, Bike, Truck) and Spot types",
+      "Discuss how spot availability is tracked and a spot is assigned",
+      "Mention design patterns: Strategy for pricing, Factory for vehicle creation"
+    ]
+  },
+  {
+    "id": "sd_002",
+    "question": "Design a library management system with book borrowing and return functionality.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Library System",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Core classes: Library, Book, BookItem, Member, Librarian, Loan",
+      "Distinguish between Book (metadata) and BookItem (physical copy)",
+      "Track loan state: borrowed, returned, overdue with fine calculation",
+      "Use Observer pattern to notify members when a reserved book is available"
+    ]
+  },
+  {
+    "id": "sd_003",
+    "question": "Design an elevator system for a multi-floor building.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Elevator System",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: ElevatorSystem, Elevator, Floor, Request, Button",
+      "Discuss scheduling algorithm: SCAN (look algorithm) vs FCFS",
+      "Model elevator state: IDLE, MOVING_UP, MOVING_DOWN",
+      "Use State pattern for elevator state transitions"
+    ]
+  },
+  {
+    "id": "sd_004",
+    "question": "Design a chess game. How would you model the pieces, board, and moves?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Chess Game",
+    "difficulty": "Hard",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: Game, Board, Piece, Player, Move, Cell",
+      "Use inheritance for Piece types (King, Queen, Rook, Bishop, Knight, Pawn)",
+      "Each piece implements its own isValidMove() method",
+      "Discuss check/checkmate detection and special moves like castling and en passant"
+    ]
+  },
+  {
+    "id": "sd_005",
+    "question": "Design a food delivery app like Swiggy or Zomato at the class level.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Food Delivery",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Core entities: Customer, Restaurant, MenuItem, Order, DeliveryAgent, Cart",
+      "Order has states: PLACED, CONFIRMED, PREPARING, OUT_FOR_DELIVERY, DELIVERED",
+      "Use State pattern for order lifecycle management",
+      "Discuss how restaurant availability and delivery agent assignment are handled"
+    ]
+  },
+  {
+    "id": "sd_006",
+    "question": "Design a hotel booking system. What are the key classes and how are reservations managed?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Hotel Booking",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Core classes: Hotel, Room, RoomType, Booking, Guest, Payment",
+      "Handle date range availability checks to prevent double booking",
+      "Use Strategy pattern for pricing (seasonal, weekend, discount)",
+      "Discuss cancellation policy and refund logic"
+    ]
+  },
+  {
+    "id": "sd_007",
+    "question": "How would you design a vending machine at the class and state level?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Vending Machine",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: VendingMachine, Product, Slot, Coin, Display",
+      "States: IDLE, HAS_MONEY, PRODUCT_SELECTED, DISPENSING, CHANGE_RETURNING",
+      "State pattern is the natural fit here for managing transitions",
+      "Handle edge cases: insufficient funds, out of stock, exact change only"
+    ]
+  },
+  {
+    "id": "sd_008",
+    "question": "Design a ride-sharing app like Uber at the class level, focusing on matching and trip lifecycle.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Ride Sharing",
+    "difficulty": "Hard",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: Rider, Driver, Trip, Location, Vehicle, Payment",
+      "Trip states: REQUESTED, DRIVER_ASSIGNED, DRIVER_ARRIVING, IN_PROGRESS, COMPLETED, CANCELLED",
+      "Matching logic: find nearest available driver using location",
+      "Use Observer pattern to notify rider of driver state changes"
+    ]
+  },
+  {
+    "id": "sd_009",
+    "question": "Design a logging framework from scratch. How would you make it flexible and extensible?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Logging Framework",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: Logger, LogLevel, LogHandler, LogFormatter, LogRecord",
+      "Support multiple handlers: ConsoleHandler, FileHandler, RemoteHandler",
+      "Chain of Responsibility pattern for log level filtering",
+      "Singleton pattern for the Logger instance, Strategy for formatters"
+    ]
+  },
+  {
+    "id": "sd_010",
+    "question": "Design a movie ticket booking system like BookMyShow.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Ticket Booking",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Core classes: Movie, Show, Theatre, Screen, Seat, Booking, User",
+      "Seat states: AVAILABLE, LOCKED, BOOKED",
+      "Discuss temporary seat locking during payment to prevent race conditions",
+      "Use Strategy pattern for dynamic pricing based on seat type and timing"
+    ]
+  },
+  {
+    "id": "sd_011",
+    "question": "Design an ATM machine at the class and state level.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "ATM",
+    "difficulty": "Medium",
+    "companies": ["Goldman Sachs", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: ATM, Card, Account, Transaction, CashDispenser, CardReader",
+      "States: IDLE, CARD_INSERTED, PIN_ENTERED, TRANSACTION_SELECTED, DISPENSING",
+      "State pattern handles transitions cleanly",
+      "Discuss security considerations: PIN validation, card blocking after failed attempts"
+    ]
+  },
+  {
+    "id": "sd_012",
+    "question": "How would you design a cache system supporting LRU and LFU eviction policies?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Cache Design",
+    "difficulty": "Hard",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Use Strategy pattern to swap eviction policies at runtime",
+      "LRU: doubly linked list + hashmap for O(1) get and put",
+      "LFU: two hashmaps (key to value/freq, freq to ordered keys) for O(1)",
+      "Discuss thread safety for concurrent cache access"
+    ]
+  },
+  {
+    "id": "sd_013",
+    "question": "Design a notification system that supports multiple channels (email, SMS, push) with user preferences.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Notification System",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: NotificationService, Notification, Channel, UserPreference",
+      "Use Strategy pattern for each channel (EmailChannel, SMSChannel, PushChannel)",
+      "Observer pattern to trigger notifications on events",
+      "Discuss respecting user opt-out preferences per channel"
+    ]
+  },
+  {
+    "id": "sd_014",
+    "question": "Design a traffic light system for a multi-road intersection.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Traffic Light",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Core classes: TrafficLight, Signal, Intersection, Timer, Road",
+      "States: RED, GREEN, YELLOW with timed transitions",
+      "State pattern for managing signal transitions",
+      "Discuss coordination between lights at an intersection to prevent conflicts"
+    ]
+  },
+  {
+    "id": "sd_015",
+    "question": "Design a social media post feed with the ability to like, comment, and share.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Social Feed",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Core classes: User, Post, Comment, Like, Share, Feed",
+      "Use Composite pattern if posts can contain nested media",
+      "Observer pattern to notify followers on new posts",
+      "Discuss how feed ordering (chronological vs ranked) affects the design"
+    ]
+  },
+  {
+    "id": "sd_016",
+    "question": "How would you design a task management system like Trello with boards, lists, and cards?",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Task Management",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Google"],
+    "strong_answer_hints": [
+      "Core classes: Board, List, Card, User, Label, Checklist, Comment",
+      "Composite pattern for nested checklist items within cards",
+      "Observer pattern for notifying assignees when a card changes",
+      "Discuss how ordering of lists and cards within a board is maintained"
+    ]
+  },
+  {
+    "id": "sd_017",
+    "question": "Design an online shopping cart system with discount and coupon support.",
+    "domain": "System Design",
+    "topic": "LLD",
+    "subtopic": "Shopping Cart",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Core classes: Cart, CartItem, Product, Coupon, DiscountStrategy, Order",
+      "Strategy pattern for different discount types: percentage, flat, BOGO",
+      "Discuss validating coupon eligibility: expiry, minimum order, single use",
+      "Handle inventory check and price recalculation before checkout"
+    ]
+  }
+]
