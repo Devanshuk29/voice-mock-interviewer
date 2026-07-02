@@ -60,14 +60,33 @@ class InterviewOrchestrator:
 
 
 if __name__ == "__main__":
+    import sys
+    sys.path.append("backend/app")
+    from audio_handler import AudioHandler
+
     agent = InterviewOrchestrator(domain="DSA")
+    audio = AudioHandler()
+
     opening = "Let's begin. Can you explain how a hashmap works internally?"
     print(f"\nInterviewer: {opening}\n")
     agent.add_to_history("ai", opening)
 
-    while True:
-        user_input = input("You: ").strip()
-        if user_input.lower() in ["quit", "exit"]:
+    turn = 0
+    max_turns = 5
+
+    while turn < max_turns:
+        transcript = audio.record_answer()
+        if not transcript.strip():
+            print("  [no speech detected, please try again]\n")
+            continue
+
+        print(f"\nYou said: {transcript}\n")
+        response = agent.get_response(transcript)
+        print(f"Interviewer: {response}\n")
+        turn += 1
+
+        if agent.should_move_on(response):
             break
-        response = agent.get_response(user_input)
-        print(f"\nInterviewer: {response}\n")
+
+    print("Interview session complete.")
+    audio.close()
