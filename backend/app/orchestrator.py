@@ -98,15 +98,20 @@ def setup_session() -> dict:
 
 if __name__ == "__main__":
     from audio_handler import AudioHandler
+    from tts_handler import TTSHandler
     from retriever import QuestionRetriever
+
+    print("Loading models, please wait...")
+    retriever = QuestionRetriever()
+    audio = AudioHandler()
+    tts = TTSHandler()
+    print("Ready!\n")
 
     session = setup_session()
     agent = InterviewOrchestrator(
         domain=session["domain"],
         difficulty=session["difficulty"]
     )
-    audio = AudioHandler()
-    retriever = QuestionRetriever()
 
     first_q = retriever.get_question(
         domain=session["domain"],
@@ -122,7 +127,8 @@ if __name__ == "__main__":
     agent.questions_asked.append(first_q["id"])
 
     opening = first_q["question"]
-    print(f"Interviewer: {opening}\n")
+    print(f"\nInterviewer: {opening}\n")
+    tts.speak(opening)
     agent.add_to_history("ai", opening)
 
     max_questions = 5
@@ -137,6 +143,7 @@ if __name__ == "__main__":
         print(f"\nYou said: {transcript}\n")
         response = agent.get_response(transcript)
         print(f"Interviewer: {response}\n")
+        tts.speak(response)
 
         if agent.should_move_on(response):
             questions_covered += 1
@@ -152,12 +159,8 @@ if __name__ == "__main__":
                 agent.questions_asked.append(next_q["id"])
                 agent.current_question_id = next_q["id"]
                 print(f"Interviewer: {next_q['question']}\n")
+                tts.speak(next_q["question"])
                 agent.add_to_history("ai", next_q["question"])
             else:
-                print("Interviewer: That concludes our session. Well done.\n")
-                break
-
-    print("="*50)
-    print("Interview session complete.")
-    print("="*50)
-    audio.close()
+                closing = "That concludes our session. Well done."
+                print(f"Interviewer: {closing}\n")

@@ -101,9 +101,3 @@ if __name__ == "__main__":
     transcript = handler.record_answer()
     print(f"\nFinal transcript: {transcript}")
     handler.close()
-#A binary tree is a fundamental, non-linear hierarchical data structure consisting of nodes, 
-# where each node has at most two children: a "left child" and a "right child". It is characterized 
-# by a single topmost root node, with branches extending downward to child nodes and finally to 
-# "leaf nodes" (nodes with no children).This specific two-child limit makes binary trees easier 
-# to implement and navigate than general trees, allowing for faster searching, sorting, and data 
-# storage
