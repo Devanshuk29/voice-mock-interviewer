@@ -19,11 +19,14 @@ class TTSHandler:
 
     def speak(self, text: str):
         print("  [speaking...]")
-        engine = self._get_engine()
-        engine.say(text)
-        engine.runAndWait()
-        engine.stop()
-        time.sleep(0.5)
+        try:
+            engine = self._get_engine()
+            engine.stop()
+            engine.say(text)
+            engine.runAndWait()
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"  [TTS error, skipping: {e}]")
 
     def close(self):
         pass

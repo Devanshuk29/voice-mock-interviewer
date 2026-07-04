@@ -52,8 +52,8 @@ class InterviewOrchestrator:
         return response.content
 
     def should_move_on(self, response: str) -> bool:
-        move_on_phrases = ["let's move on", "move on", "next question", "okay.", "i see."]
-        return any(phrase in response.lower() for phrase in move_on_phrases)
+        response_lower = response.lower().strip()
+        return "let's move on" in response_lower or "lets move on" in response_lower
 
     def reset(self):
         self.history = []
@@ -100,11 +100,13 @@ if __name__ == "__main__":
     from audio_handler import AudioHandler
     from tts_handler import TTSHandler
     from retriever import QuestionRetriever
+    from feedback import FeedbackGenerator
 
     print("Loading models, please wait...")
     retriever = QuestionRetriever()
     audio = AudioHandler()
     tts = TTSHandler()
+    feedback_gen = FeedbackGenerator()
     print("Ready!\n")
 
     session = setup_session()
@@ -115,7 +117,8 @@ if __name__ == "__main__":
 
     first_q = retriever.get_question(
         domain=session["domain"],
-        difficulty=session["difficulty"]
+        difficulty=session["difficulty"],
+        exclude_ids=agent.questions_asked
     )
 
     if not first_q:
@@ -143,7 +146,6 @@ if __name__ == "__main__":
         print(f"\nYou said: {transcript}\n")
         response = agent.get_response(transcript)
         print(f"Interviewer: {response}\n")
-        tts.speak(response)
 
         if agent.should_move_on(response):
             questions_covered += 1
@@ -152,7 +154,8 @@ if __name__ == "__main__":
 
             next_q = retriever.get_question(
                 domain=session["domain"],
-                difficulty=session["difficulty"]
+                difficulty=session["difficulty"],
+                exclude_ids=agent.questions_asked
             )
 
             if next_q and next_q["id"] not in agent.questions_asked:
@@ -162,5 +165,24 @@ if __name__ == "__main__":
                 tts.speak(next_q["question"])
                 agent.add_to_history("ai", next_q["question"])
             else:
-                closing = "That concludes our session. Well done."
+                closing = "That concludes our session."
                 print(f"Interviewer: {closing}\n")
+                tts.speak(closing)
+                break
+        else:
+            tts.speak(response)
+
+    closing = "The interview session is now complete. Generating your feedback report."
+    print("="*50)
+    print(closing)
+    print("="*50)
+    tts.speak(closing)
+
+    report = feedback_gen.generate(
+        conversation_history=agent.history,
+        domain=session["domain"],
+        difficulty=session["difficulty"]
+    )
+    feedback_gen.print_report(report)
+    audio.close()
+    tts.close()
