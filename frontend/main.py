@@ -42,6 +42,7 @@ st.markdown("""
     .candidate-msg { color: #aaaaaa; font-size: 13px; margin-bottom: 4px; }
     .label-green { color: #00ff41; font-size: 11px; }
     .label-gray { color: #555; font-size: 11px; }
+    .error-msg { color: #ff4444; font-size: 12px; }
     .status-bar {
         display: flex;
         justify-content: space-between;
@@ -104,7 +105,6 @@ st.markdown("""
     }
 
     hr { border-color: #1f1f1f !important; }
-
     .stSpinner > div { color: #00ff41 !important; }
 
     [data-testid="stMarkdownContainer"] p {
@@ -139,11 +139,15 @@ def init_session():
 
 def load_models():
     if not st.session_state.models_loaded:
-        st.session_state.retriever = QuestionRetriever()
-        st.session_state.audio = AudioHandler()
-        st.session_state.tts = TTSHandler()
-        st.session_state.feedback_gen = FeedbackGenerator()
-        st.session_state.models_loaded = True
+        try:
+            st.session_state.retriever = QuestionRetriever()
+            st.session_state.audio = AudioHandler()
+            st.session_state.tts = TTSHandler()
+            st.session_state.feedback_gen = FeedbackGenerator()
+            st.session_state.models_loaded = True
+        except Exception as e:
+            st.error(f"failed to load models: {e}")
+            st.stop()
 
 
 def render_setup():
@@ -155,13 +159,10 @@ def render_setup():
     """, unsafe_allow_html=True)
 
     st.markdown("<div class='terminal-box'>", unsafe_allow_html=True)
-
     st.markdown("<p class='label-green'>// select domain</p>", unsafe_allow_html=True)
     domain = st.selectbox("", ["DSA", "System Design (LLD)", "HR"], label_visibility="collapsed", key="domain_select")
-
     st.markdown("<br><p class='label-green'>// select difficulty</p>", unsafe_allow_html=True)
     difficulty = st.selectbox("", ["Easy", "Medium", "Hard"], label_visibility="collapsed", key="diff_select")
-
     st.markdown("</div>", unsafe_allow_html=True)
 
     if st.button("▶  initialize session"):
@@ -172,13 +173,17 @@ def render_setup():
         st.session_state.difficulty = difficulty
         st.session_state.agent = InterviewOrchestrator(domain=domain, difficulty=difficulty)
 
-        first_q = st.session_state.retriever.get_question(
-            domain=domain,
-            difficulty=difficulty,
-            exclude_ids=[]
-        )
+        try:
+            first_q = st.session_state.retriever.get_question(
+                domain=domain,
+                difficulty=difficulty,
+                exclude_ids=st.session_state.agent.questions_asked
+            )
 
-        if first_q:
+            if not first_q:
+                st.error("no questions found for this selection. please try a different domain or difficulty.")
+                return
+
             st.session_state.agent.questions_asked.append(first_q["id"])
             st.session_state.agent.add_to_history("ai", first_q["question"])
             st.session_state.conversation.append({
@@ -186,8 +191,11 @@ def render_setup():
                 "text": first_q["question"]
             })
             st.session_state.tts.speak(first_q["question"])
-        st.session_state.screen = "interview"
-        st.rerun()
+            st.session_state.screen = "interview"
+            st.rerun()
+
+        except Exception as e:
+            st.error(f"failed to start session: {e}")
 
 
 def render_interview():
@@ -211,11 +219,17 @@ def render_interview():
                 <p class='interviewer-msg'>{msg['text']}</p>
             </div>
             """, unsafe_allow_html=True)
-        else:
+        elif msg["role"] == "candidate":
             st.markdown(f"""
             <div class='terminal-box'>
                 <p class='label-gray'>[you]</p>
                 <p class='candidate-msg'>{msg['text']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+        elif msg["role"] == "error":
+            st.markdown(f"""
+            <div class='terminal-box'>
+                <p class='error-msg'>[system] {msg['text']}</p>
             </div>
             """, unsafe_allow_html=True)
 
@@ -225,72 +239,106 @@ def render_interview():
 
     with col1:
         if st.button("🎤  record answer  (pause 5s to stop)"):
-            with st.spinner("listening..."):
-                transcript = st.session_state.audio.record_answer()
+            try:
+                with st.spinner("listening..."):
+                    transcript = st.session_state.audio.record_answer()
 
-            if not transcript.strip():
-                st.warning("no speech detected. try again.")
-                return
-
-            st.session_state.conversation.append({
-                "role": "candidate",
-                "text": transcript
-            })
-
-            with st.spinner("interviewer thinking..."):
-                response = st.session_state.agent.get_response(transcript)
-
-            move_on = "let's move on" in response.lower() or "lets move on" in response.lower()
-
-            if move_on:
-                st.session_state.questions_covered += 1
-
-                if st.session_state.questions_covered >= st.session_state.max_questions:
-                    st.session_state.session_complete = True
-                    with st.spinner("generating feedback report..."):
-                        report = st.session_state.feedback_gen.generate(
-                            conversation_history=st.session_state.agent.history,
-                            domain=st.session_state.domain,
-                            difficulty=st.session_state.difficulty
-                        )
-                    st.session_state.feedback_report = report
-                    st.session_state.screen = "feedback"
+                if not transcript or len(transcript.strip()) < 3:
+                    fallback = "I didn't quite catch that. Could you please repeat your answer?"
+                    st.session_state.conversation.append({
+                        "role": "interviewer",
+                        "text": fallback
+                    })
+                    st.session_state.tts.speak(fallback)
                     st.rerun()
-                else:
-                    next_q = st.session_state.retriever.get_question(
-                        domain=st.session_state.domain,
-                        difficulty=st.session_state.difficulty,
-                        exclude_ids=st.session_state.agent.questions_asked
-                    )
-                    if next_q:
-                        st.session_state.agent.questions_asked.append(next_q["id"])
-                        st.session_state.agent.add_to_history("ai", next_q["question"])
-                        st.session_state.conversation.append({
-                            "role": "interviewer",
-                            "text": next_q["question"]
-                        })
-                        st.session_state.tts.speak(next_q["question"])
-                    else:
-                        st.session_state.session_complete = True
-                        st.session_state.screen = "feedback"
-            else:
-                st.session_state.conversation.append({
-                    "role": "interviewer",
-                    "text": response
-                })
-                st.session_state.tts.speak(response)
+                    return
 
-            st.rerun()
+                st.session_state.conversation.append({
+                    "role": "candidate",
+                    "text": transcript
+                })
+
+                try:
+                    with st.spinner("interviewer thinking..."):
+                        response = st.session_state.agent.get_response(transcript)
+                except Exception as e:
+                    response = "I'm having a brief technical issue. Could you elaborate on your last point?"
+                    st.session_state.conversation.append({
+                        "role": "error",
+                        "text": f"llm error: {e}"
+                    })
+
+                move_on = "let's move on" in response.lower() or "lets move on" in response.lower()
+
+                if move_on:
+                    st.session_state.questions_covered += 1
+
+                    if st.session_state.questions_covered >= st.session_state.max_questions:
+                        st.session_state.session_complete = True
+                        try:
+                            with st.spinner("generating feedback report..."):
+                                report = st.session_state.feedback_gen.generate(
+                                    conversation_history=st.session_state.agent.history,
+                                    domain=st.session_state.domain,
+                                    difficulty=st.session_state.difficulty
+                                )
+                            st.session_state.feedback_report = report
+                        except Exception as e:
+                            st.session_state.feedback_report = "OVERALL SCORE: N/A\n\nSUMMARY:\nFeedback generation failed. Please review your conversation above."
+                        st.session_state.screen = "feedback"
+                        st.rerun()
+                    else:
+                        try:
+                            next_q = st.session_state.retriever.get_question(
+                                domain=st.session_state.domain,
+                                difficulty=st.session_state.difficulty,
+                                exclude_ids=st.session_state.agent.questions_asked
+                            )
+                            if next_q:
+                                st.session_state.agent.questions_asked.append(next_q["id"])
+                                st.session_state.agent.add_to_history("ai", next_q["question"])
+                                st.session_state.conversation.append({
+                                    "role": "interviewer",
+                                    "text": next_q["question"]
+                                })
+                                st.session_state.tts.speak(next_q["question"])
+                            else:
+                                closing = "we've covered all available questions for this session."
+                                st.session_state.conversation.append({
+                                    "role": "interviewer",
+                                    "text": closing
+                                })
+                                st.session_state.tts.speak(closing)
+                                st.session_state.screen = "feedback"
+                        except Exception as e:
+                            st.session_state.conversation.append({
+                                "role": "error",
+                                "text": f"failed to fetch next question: {e}"
+                            })
+                else:
+                    st.session_state.conversation.append({
+                        "role": "interviewer",
+                        "text": response
+                    })
+                    st.session_state.tts.speak(response)
+
+                st.rerun()
+
+            except Exception as e:
+                st.error(f"unexpected error: {e}")
 
     with col2:
         if st.button("end session"):
-            with st.spinner("generating feedback report..."):
-                report = st.session_state.feedback_gen.generate(
-                    conversation_history=st.session_state.agent.history,
-                    domain=st.session_state.domain,
-                    difficulty=st.session_state.difficulty
-                )
-            st.session_state.feedback_report = report
+            try:
+                with st.spinner("generating feedback report..."):
+                    report = st.session_state.feedback_gen.generate(
+                        conversation_history=st.session_state.agent.history,
+                        domain=st.session_state.domain,
+                        difficulty=st.session_state.difficulty
+                    )
+                st.session_state.feedback_report = report
+            except Exception as e:
+                st.session_state.feedback_report = "OVERALL SCORE: N/A\n\nSUMMARY:\nFeedback generation failed. Please review your conversation above."
             st.session_state.screen = "feedback"
             st.rerun()
 
@@ -303,6 +351,14 @@ def render_feedback():
     """, unsafe_allow_html=True)
 
     report = st.session_state.feedback_report
+
+    if not report:
+        st.error("no feedback available.")
+        if st.button("▶  start new session"):
+            for key in list(st.session_state.keys()):
+                del st.session_state[key]
+            st.rerun()
+        return
 
     lines = report.split("\n")
     score_line = next((l for l in lines if "OVERALL SCORE" in l), None)

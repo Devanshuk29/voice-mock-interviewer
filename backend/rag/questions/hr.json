@@ -1,242 +1,977 @@
 [
   {
-    "id": "hr_001",
-    "question": "Tell me about yourself and why you are interested in this role.",
-    "domain": "HR",
-    "topic": "Introduction",
-    "subtopic": "Self Introduction",
-    "difficulty": "Easy",
-    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Structure: current situation, past experience, future goals",
-      "Tie personal strengths directly to the role requirements",
-      "Keep it under 2 minutes and confident",
-      "Avoid reading off resume; show genuine motivation for the company"
-    ]
-  },
-  {
-    "id": "hr_002",
-    "question": "Describe a situation where you had to work under pressure to meet a tight deadline.",
+    "id": "hr_017",
+    "question": "Tell me about a time you had to make a decision without having all the information you wanted.",
     "domain": "HR",
     "topic": "Behavioral",
-    "subtopic": "Pressure Handling",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Use the STAR format: Situation, Task, Action, Result",
-      "Be specific about what the pressure was and your personal role",
-      "Highlight prioritization and communication under stress",
-      "Quantify the outcome wherever possible"
-    ]
-  },
-  {
-    "id": "hr_003",
-    "question": "Tell me about a time you disagreed with a team member and how you handled it.",
-    "domain": "HR",
-    "topic": "Behavioral",
-    "subtopic": "Conflict Resolution",
-    "difficulty": "Medium",
-    "companies": ["Google", "Amazon", "Microsoft"],
-    "strong_answer_hints": [
-      "Show maturity by focusing on the issue not the person",
-      "Describe how you listened to understand their perspective",
-      "Explain how you reached a resolution or escalated appropriately",
-      "Show the outcome was positive for the team or project"
-    ]
-  },
-  {
-    "id": "hr_004",
-    "question": "What is your greatest technical weakness and how are you actively working on it?",
-    "domain": "HR",
-    "topic": "Self Awareness",
-    "subtopic": "Weaknesses",
-    "difficulty": "Medium",
-    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Pick a real weakness that is not a core requirement of the job",
-      "Show genuine self awareness, not a disguised strength",
-      "Describe concrete steps you are taking to improve",
-      "Mention measurable progress you have already made"
-    ]
-  },
-  {
-    "id": "hr_005",
-    "question": "Where do you see yourself in five years?",
-    "domain": "HR",
-    "topic": "Career Goals",
-    "subtopic": "Long Term Vision",
-    "difficulty": "Easy",
-    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Show ambition while aligning with realistic growth at the company",
-      "Mention technical depth or leadership interest based on the role",
-      "Avoid vague answers or saying you want the interviewer's job",
-      "Connect your goals to why this company is the right place to achieve them"
-    ]
-  },
-  {
-    "id": "hr_006",
-    "question": "Describe a project you are most proud of and what your specific contribution was.",
-    "domain": "HR",
-    "topic": "Behavioral",
-    "subtopic": "Achievements",
-    "difficulty": "Medium",
-    "companies": ["Google", "Amazon", "Microsoft"],
-    "strong_answer_hints": [
-      "Be specific about your individual contribution, not just the team's work",
-      "Explain the technical challenge and how you solved it",
-      "Quantify the impact wherever possible",
-      "Show passion and ownership in how you describe it"
-    ]
-  },
-  {
-    "id": "hr_007",
-    "question": "Tell me about a time you failed at something. What did you learn from it?",
-    "domain": "HR",
-    "topic": "Behavioral",
-    "subtopic": "Failure & Learning",
+    "subtopic": "Decision Making",
     "difficulty": "Medium",
     "companies": ["Amazon", "Google", "Microsoft"],
     "strong_answer_hints": [
-      "Choose a real failure that had meaningful stakes",
-      "Take clear ownership without deflecting blame",
-      "Explain specifically what you learned and changed afterwards",
-      "Show that the failure made you a better engineer or teammate"
+      "Explain what information was missing and why waiting wasn't an option",
+      "Describe the reasoning process you used to decide anyway",
+      "Show how you mitigated risk with a fallback plan",
+      "State the outcome and whether you'd decide the same way again"
     ]
   },
   {
-    "id": "hr_008",
-    "question": "How do you prioritize tasks when you have multiple competing deadlines?",
+    "id": "hr_018",
+    "question": "Describe a situation where you had to say no to a request from your manager or a stakeholder.",
     "domain": "HR",
     "topic": "Behavioral",
-    "subtopic": "Time Management",
-    "difficulty": "Easy",
-    "companies": ["Microsoft", "Goldman Sachs", "Amazon"],
+    "subtopic": "Assertiveness",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs"],
     "strong_answer_hints": [
-      "Describe a framework: urgency vs importance, stakeholder impact",
-      "Mention communicating early if deadlines are at risk",
-      "Give a concrete example of reprioritization under pressure",
-      "Show proactiveness rather than waiting to be told what to drop"
+      "Show you explained your reasoning clearly and respectfully",
+      "Offer an alternative or compromise rather than a flat refusal",
+      "Demonstrate you considered business impact, not just personal preference",
+      "Describe how the relationship was preserved afterward"
     ]
   },
   {
-    "id": "hr_009",
-    "question": "Why do you want to work at this company specifically, and not a competitor?",
+    "id": "hr_019",
+    "question": "Tell me about a time you had to deliver bad news to a client, manager, or team.",
     "domain": "HR",
-    "topic": "Motivation",
-    "subtopic": "Company Fit",
+    "topic": "Behavioral",
+    "subtopic": "Communication",
+    "difficulty": "Medium",
+    "companies": ["Goldman Sachs", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Show preparation: you understood the full situation before communicating",
+      "Describe being direct and honest rather than burying the message",
+      "Explain how you offered next steps or solutions alongside the news",
+      "Highlight how you managed the emotional reaction of the audience"
+    ]
+  },
+  {
+    "id": "hr_020",
+    "question": "How do you approach building trust with a new team when you join a project?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Teamwork",
+    "difficulty": "Easy",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Mention listening first and understanding existing team norms",
+      "Show delivering small wins early to establish credibility",
+      "Describe being transparent about your own limitations",
+      "Emphasize consistency between words and actions over time"
+    ]
+  },
+  {
+    "id": "hr_021",
+    "question": "Tell me about a time you went above and beyond your job responsibilities.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Ownership",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Pick an example where no one asked you to do it",
+      "Explain the gap you noticed and why it mattered",
+      "Quantify the impact of your extra effort",
+      "Avoid implying you regularly overextend yourself unsustainably"
+    ]
+  },
+  {
+    "id": "hr_022",
+    "question": "Describe a time you had to adapt quickly to a significant change at work.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Adaptability",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Describe the change clearly and why it was disruptive",
+      "Show a calm, structured response rather than panic",
+      "Highlight how you helped others adjust as well",
+      "Reflect on what you learned about handling change generally"
+    ]
+  },
+  {
+    "id": "hr_023",
+    "question": "What does good customer obsession look like to you in practice?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Customer Focus",
+    "difficulty": "Medium",
+    "companies": ["Amazon"],
+    "strong_answer_hints": [
+      "Give a concrete example of prioritizing customer needs over convenience",
+      "Show how you gathered customer feedback or data before acting",
+      "Explain trade-offs you made to protect customer trust",
+      "Connect the story to measurable customer or business impact"
+    ]
+  },
+  {
+    "id": "hr_024",
+    "question": "Tell me about a time you took a calculated risk. What was the outcome?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Risk Taking",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Clarify what made the risk 'calculated' rather than reckless",
+      "Explain the analysis or data behind your decision",
+      "Be honest if the outcome wasn't fully successful and what you learned",
+      "Show you took accountability for the result either way"
+    ]
+  },
+  {
+    "id": "hr_025",
+    "question": "Describe a situation where you had to manage up to get support from your manager.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Managing Up",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Microsoft"],
+    "strong_answer_hints": [
+      "Show you understood your manager's priorities and constraints",
+      "Describe framing your ask in terms of business impact",
+      "Highlight persistence without becoming confrontational",
+      "Explain the result and how the relationship evolved"
+    ]
+  },
+  {
+    "id": "hr_026",
+    "question": "Tell me about a time you mentored or coached a junior colleague.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Mentorship",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Describe how you assessed their starting skill level and needs",
+      "Show patience and a tailored, not one-size-fits-all, approach",
+      "Highlight a specific improvement you helped them achieve",
+      "Reflect on what mentoring taught you about communication"
+    ]
+  },
+  {
+    "id": "hr_027",
+    "question": "How would your previous manager and teammates describe working with you?",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Reputation",
     "difficulty": "Easy",
     "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
     "strong_answer_hints": [
-      "Show you have researched the company's products, culture, and mission",
-      "Connect specific things about the company to your personal goals",
-      "Avoid generic answers like good salary or brand name",
-      "Reference something recent about the company that genuinely excites you"
+      "Give honest, specific traits rather than generic buzzwords",
+      "Support each trait with a brief concrete example",
+      "Mention something you're consciously improving on",
+      "Keep the tone humble rather than boastful"
     ]
   },
   {
-    "id": "hr_010",
-    "question": "Describe a time when you had to quickly learn a new technology or tool. How did you approach it?",
+    "id": "hr_028",
+    "question": "Tell me about a time you had to give difficult feedback to a peer or report.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Feedback Delivery",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Show you focused on specific behavior, not personality",
+      "Describe choosing a private, timely setting for the conversation",
+      "Highlight how you balanced honesty with empathy",
+      "Explain the resulting change in behavior or performance"
+    ]
+  },
+  {
+    "id": "hr_029",
+    "question": "Describe a time you had to work with limited resources or budget to complete a task.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Resourcefulness",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Explain the constraint clearly and what was originally planned",
+      "Show creative problem-solving to work within limits",
+      "Highlight prioritization of what mattered most",
+      "Quantify what was still achieved despite the constraint"
+    ]
+  },
+  {
+    "id": "hr_030",
+    "question": "Tell me about a goal you set for yourself and how you achieved it.",
+    "domain": "HR",
+    "topic": "Career Goals",
+    "subtopic": "Goal Setting",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Google"],
+    "strong_answer_hints": [
+      "Use a specific, measurable goal rather than something vague",
+      "Describe the plan and milestones you set along the way",
+      "Mention obstacles you overcame to reach it",
+      "Reflect on how achieving it changed your approach to future goals"
+    ]
+  },
+  {
+    "id": "hr_031",
+    "question": "How do you handle ambiguity when project requirements are unclear?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Handling Ambiguity",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Describe asking clarifying questions to the right stakeholders",
+      "Show you make reasonable assumptions and document them",
+      "Highlight iterating quickly rather than waiting for perfect clarity",
+      "Give an example where this approach led to a good outcome"
+    ]
+  },
+  {
+    "id": "hr_032",
+    "question": "Tell me about a time your team missed a deadline. What happened and what did you do?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Accountability",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Be honest about the root cause without excessive blame-shifting",
+      "Describe how you communicated the delay to stakeholders",
+      "Explain the recovery plan and how future risk was reduced",
+      "Show accountability even for factors outside your direct control"
+    ]
+  },
+  {
+    "id": "hr_033",
+    "question": "Describe a time you identified a process inefficiency and improved it.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Process Improvement",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Describe how you spotted the inefficiency, ideally with data",
+      "Explain the change you proposed and how you got buy-in",
+      "Quantify the time, cost, or quality improvement achieved",
+      "Mention how the improvement was sustained after you moved on"
+    ]
+  },
+  {
+    "id": "hr_034",
+    "question": "What are your salary expectations for this role?",
+    "domain": "HR",
+    "topic": "Negotiation",
+    "subtopic": "Compensation",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Research market rates for the role, level, and location beforehand",
+      "Give a reasonable range rather than a single rigid number",
+      "Show flexibility while anchoring on your value to the company",
+      "Redirect focus to overall fit if pressed too early in the process"
+    ]
+  },
+  {
+    "id": "hr_035",
+    "question": "Why are you leaving your current job, or why did you leave your last one?",
+    "domain": "HR",
+    "topic": "Motivation",
+    "subtopic": "Career Transition",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Stay positive and forward-looking rather than criticizing past employers",
+      "Frame the move around growth, scope, or mission alignment",
+      "Keep the explanation concise and consistent with your resume timeline",
+      "Avoid discussing compensation as the primary driver"
+    ]
+  },
+  {
+    "id": "hr_036",
+    "question": "Tell me about a time you had to balance speed and quality on a project.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Trade-off Management",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Explain the specific trade-off you faced and its stakes",
+      "Describe the criteria you used to decide where to cut scope",
+      "Highlight communication with stakeholders about the trade-off",
+      "Share the outcome and whether you'd make the same call again"
+    ]
+  },
+  {
+    "id": "hr_037",
+    "question": "Describe a time you worked effectively in a cross-functional team.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Cross-functional Collaboration",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Name the different functions involved and their differing priorities",
+      "Show how you translated between technical and non-technical stakeholders",
+      "Describe a specific friction point and how it was resolved",
+      "Highlight the shared outcome achieved together"
+    ]
+  },
+  {
+    "id": "hr_038",
+    "question": "How do you ensure clear communication when working with remote or distributed teams?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Remote Collaboration",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Mention specific tools and practices like async updates or shared docs",
+      "Highlight being mindful of time zones and response expectations",
+      "Show over-communication of context to avoid misunderstanding",
+      "Give an example where this approach prevented a problem"
+    ]
+  },
+  {
+    "id": "hr_039",
+    "question": "Tell me about a time you had to persuade senior leadership to approve your proposal.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Executive Communication",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Describe tailoring the pitch to what leadership cares about most",
+      "Show you anticipated objections and prepared data to address them",
+      "Highlight conciseness and clarity given limited executive time",
+      "Share whether the proposal was approved and what followed"
+    ]
+  },
+  {
+    "id": "hr_040",
+    "question": "Describe a time you had to work outside your comfort zone.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Growth Mindset",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Explain what specifically made the situation uncomfortable",
+      "Show initiative in seeking help or resources to close the gap",
+      "Highlight the growth or new skill gained from the experience",
+      "Avoid framing it as something you'd avoid repeating"
+    ]
+  },
+  {
+    "id": "hr_041",
+    "question": "How do you approach setting and managing expectations with stakeholders?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Stakeholder Management",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Goldman Sachs", "Microsoft"],
+    "strong_answer_hints": [
+      "Mention setting expectations early with clear scope and timelines",
+      "Show regular check-ins to surface risks before they escalate",
+      "Describe how you handle scope creep or shifting priorities",
+      "Give a concrete example of maintaining trust through transparency"
+    ]
+  },
+  {
+    "id": "hr_042",
+    "question": "Tell me about a time you had to say sorry for a mistake at work.",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Accountability",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Own the mistake clearly without over-apologizing or deflecting",
+      "Explain the concrete steps taken to fix the immediate issue",
+      "Describe systemic changes made to prevent recurrence",
+      "Show how the relationship or trust was rebuilt afterward"
+    ]
+  },
+  {
+    "id": "hr_043",
+    "question": "What does work-life balance mean to you, and how do you maintain it?",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Work-Life Balance",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Google"],
+    "strong_answer_hints": [
+      "Give a genuine, specific answer rather than a rehearsed cliche",
+      "Show you can be intense when needed without burning out long-term",
+      "Mention habits or boundaries that help you sustain performance",
+      "Align your answer with the pace and culture of the company"
+    ]
+  },
+  {
+    "id": "hr_044",
+    "question": "Tell me about a time you disagreed with a company decision or policy. How did you respond?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Disagree and Commit",
+    "difficulty": "Hard",
+    "companies": ["Amazon"],
+    "strong_answer_hints": [
+      "Show you voiced your disagreement through the right channels first",
+      "Describe committing fully once the decision was made",
+      "Avoid undermining the decision afterward, even informally",
+      "Reflect on what you learned about organizational decision-making"
+    ]
+  },
+  {
+    "id": "hr_045",
+    "question": "Describe your ideal team culture and environment.",
+    "domain": "HR",
+    "topic": "Motivation",
+    "subtopic": "Culture Fit",
+    "difficulty": "Easy",
+    "companies": ["Google", "Microsoft", "Amazon"],
+    "strong_answer_hints": [
+      "Be specific about values like transparency, autonomy, or high standards",
+      "Connect your description to evidence from past experiences",
+      "Research the company's stated values and mention genuine overlap",
+      "Avoid describing a culture that conflicts with the company's known style"
+    ]
+  },
+  {
+    "id": "hr_046",
+    "question": "Tell me about a time you had to onboard quickly onto an unfamiliar codebase or domain.",
     "domain": "HR",
     "topic": "Behavioral",
     "subtopic": "Learning Agility",
     "difficulty": "Medium",
     "companies": ["Google", "Amazon", "Microsoft"],
     "strong_answer_hints": [
-      "Show a structured approach: docs first, then build a small project",
-      "Mention specific resources you used and how long it took",
-      "Highlight how you applied the new skill to deliver something",
-      "Emphasize curiosity and comfort with ambiguity"
+      "Describe your strategy for prioritizing what to learn first",
+      "Mention how you leveraged teammates or documentation efficiently",
+      "Highlight how quickly you became productive with evidence",
+      "Show comfort operating with incomplete understanding initially"
     ]
   },
   {
-    "id": "hr_011",
-    "question": "Tell me about a time you showed leadership without having a formal leadership title.",
+    "id": "hr_047",
+    "question": "How do you handle situations where you strongly disagree with your manager's technical or business decision?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Conflict Resolution",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show you raise concerns privately and with supporting evidence",
+      "Describe listening for context you might be missing",
+      "Highlight respecting the final call once made",
+      "Share a real example and its outcome"
+    ]
+  },
+  {
+    "id": "hr_048",
+    "question": "Tell me about a time you had to juggle multiple projects at once. How did you keep everything on track?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Time Management",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Mention specific tools or systems used to track priorities",
+      "Show how you communicated trade-offs to stakeholders proactively",
+      "Give an example of a moment you had to reprioritize under load",
+      "Highlight the outcome across all projects, not just one"
+    ]
+  },
+  {
+    "id": "hr_049",
+    "question": "Describe a situation where you took ownership of a problem that wasn't technically your responsibility.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Ownership",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Show you noticed the gap before being asked to act",
+      "Describe navigating any pushback about scope or authority",
+      "Highlight the resolution and its impact on the broader team",
+      "Avoid framing it as overstepping without coordination"
+    ]
+  },
+  {
+    "id": "hr_050",
+    "question": "What kind of manager or leadership style brings out your best work?",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Work Preferences",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Google", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Be honest and specific rather than saying 'any style works'",
+      "Explain why that style suits how you operate best",
+      "Show adaptability to different management styles when needed",
+      "Avoid describing a style that could be seen as high-maintenance"
+    ]
+  },
+  {
+    "id": "hr_051",
+    "question": "Tell me about a time you had to balance innovation with following established processes.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Innovation",
+    "difficulty": "Hard",
+    "companies": ["Google", "Amazon"],
+    "strong_answer_hints": [
+      "Describe the tension between the new idea and existing process",
+      "Show how you validated the idea before pushing for change",
+      "Highlight how you brought others along rather than working around them",
+      "Share the measurable result of the innovation"
+    ]
+  },
+  {
+    "id": "hr_052",
+    "question": "How do you handle working with a manager whose communication style is very different from yours?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Adaptability",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show self-awareness about your own default communication style",
+      "Describe actively adjusting your approach to meet them halfway",
+      "Give a concrete example of navigating a style mismatch successfully",
+      "Highlight the improved working relationship that resulted"
+    ]
+  },
+  {
+    "id": "hr_053",
+    "question": "Tell me about a time you had to push back on unrealistic expectations from a client or stakeholder.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Stakeholder Management",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Show you validated their underlying need before pushing back",
+      "Describe using data or scoping options to reset expectations",
+      "Highlight maintaining the relationship despite the pushback",
+      "Share how the final agreement was reached"
+    ]
+  },
+  {
+    "id": "hr_054",
+    "question": "Describe a time you had to work with incomplete or conflicting data to make a recommendation.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Analytical Thinking",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Explain how you identified which data sources were most reliable",
+      "Describe the assumptions you made explicit in your recommendation",
+      "Show how you communicated uncertainty to decision makers",
+      "Share the outcome and whether the recommendation held up"
+    ]
+  },
+  {
+    "id": "hr_055",
+    "question": "Tell me about a time you contributed to improving diversity, equity, or inclusion in your workplace.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Diversity & Inclusion",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft"],
+    "strong_answer_hints": [
+      "Describe a concrete action, not just a stated belief",
+      "Show awareness of why inclusion matters for team performance",
+      "Highlight how you included quieter or underrepresented voices",
+      "Reflect on what you personally learned from the effort"
+    ]
+  },
+  {
+    "id": "hr_056",
+    "question": "How would you handle a situation where you strongly believe a project should be cancelled but leadership wants to continue?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Judgment",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show you would present clear evidence and business rationale",
+      "Describe seeking to understand context you might be missing",
+      "Highlight respecting the final decision after voicing concerns",
+      "Avoid suggesting you would disengage or work half-heartedly"
+    ]
+  },
+  {
+    "id": "hr_057",
+    "question": "Tell me about a time you had to simplify a complex technical concept for a non-technical audience.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Communication",
+    "difficulty": "Medium",
+    "companies": ["Google", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Describe how you identified the audience's existing knowledge level",
+      "Mention using analogies or visuals to aid understanding",
+      "Show you checked for understanding rather than assuming it",
+      "Highlight the resulting decision or action the audience took"
+    ]
+  },
+  {
+    "id": "hr_058",
+    "question": "Describe a time you had to recover team morale after a setback or failure.",
     "domain": "HR",
     "topic": "Behavioral",
     "subtopic": "Leadership",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Google", "Microsoft"],
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Microsoft"],
     "strong_answer_hints": [
-      "Show initiative by identifying a problem others were ignoring",
-      "Describe how you rallied teammates without authority",
-      "Focus on influence through communication and competence",
-      "Connect the outcome back to team or project success"
+      "Show acknowledgment of the setback honestly with the team",
+      "Describe specific actions taken to rebuild confidence and focus",
+      "Highlight how you turned lessons learned into forward momentum",
+      "Share evidence that morale and performance recovered"
     ]
   },
   {
-    "id": "hr_012",
-    "question": "How do you handle receiving critical feedback on your work?",
+    "id": "hr_059",
+    "question": "What is the most important lesson you've learned so far in your career?",
     "domain": "HR",
     "topic": "Self Awareness",
-    "subtopic": "Feedback Reception",
+    "subtopic": "Career Reflection",
     "difficulty": "Easy",
-    "companies": ["Google", "Microsoft", "Goldman Sachs"],
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
     "strong_answer_hints": [
-      "Show you separate your ego from your work",
-      "Describe listening fully before responding or defending",
-      "Give a specific example of acting on critical feedback",
-      "Show gratitude for feedback as a growth opportunity"
+      "Choose a lesson tied to a specific formative experience",
+      "Show how the lesson changed your subsequent behavior",
+      "Keep it genuine and relevant to the role you're applying for",
+      "Avoid overly generic lessons like 'communication is important'"
     ]
   },
   {
-    "id": "hr_013",
-    "question": "Describe a time when you had to convince a skeptical stakeholder or team member to adopt your idea.",
+    "id": "hr_060",
+    "question": "Tell me about a time you had to hold a team member accountable for missed commitments.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Accountability",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Describe addressing the issue directly but respectfully",
+      "Show you sought to understand root causes before acting",
+      "Highlight the specific agreement reached to course-correct",
+      "Share the follow-up and whether performance improved"
+    ]
+  },
+  {
+    "id": "hr_061",
+    "question": "How do you evaluate whether you have made the right career choices so far?",
+    "domain": "HR",
+    "topic": "Career Goals",
+    "subtopic": "Career Reflection",
+    "difficulty": "Medium",
+    "companies": ["Goldman Sachs", "Microsoft"],
+    "strong_answer_hints": [
+      "Show a thoughtful framework, e.g. growth, impact, and fulfillment",
+      "Give an honest example of a choice that worked out well",
+      "Mention a choice you'd reconsider and what you learned",
+      "Connect your reflection to why this role is the right next step"
+    ]
+  },
+  {
+    "id": "hr_062",
+    "question": "Tell me about a time you had to make a trade-off between two things the business valued equally.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Trade-off Management",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Clearly articulate both competing priorities and their stakes",
+      "Describe the framework or criteria used to break the tie",
+      "Show you communicated the trade-off transparently to stakeholders",
+      "Share the outcome and any lasting impact of the decision"
+    ]
+  },
+  {
+    "id": "hr_063",
+    "question": "Describe a time you had to influence a decision without having direct authority over the outcome.",
     "domain": "HR",
     "topic": "Behavioral",
     "subtopic": "Influencing",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Goldman Sachs", "Google"],
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Google"],
     "strong_answer_hints": [
-      "Show you first understood their concern or objection deeply",
-      "Describe using data or a prototype to make your case concrete",
-      "Avoid making it about winning an argument; show collaboration",
-      "Highlight the outcome and what changed as a result"
+      "Show you built credibility and relationships before pushing your view",
+      "Describe using data, storytelling, or prototypes to persuade",
+      "Highlight patience through a process you didn't fully control",
+      "Share the eventual outcome and its business impact"
     ]
   },
   {
-    "id": "hr_014",
-    "question": "What motivates you day-to-day when working on a long or complex project?",
+    "id": "hr_064",
+    "question": "What questions do you have for us about the role or the company?",
     "domain": "HR",
-    "topic": "Motivation",
-    "subtopic": "Intrinsic Motivation",
+    "topic": "Closing",
+    "subtopic": "Candidate Questions",
     "difficulty": "Easy",
-    "companies": ["Google", "Microsoft"],
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
     "strong_answer_hints": [
-      "Be specific and genuine rather than saying 'I love challenges'",
-      "Connect motivation to impact on users or the team",
-      "Mention milestones, learning, or ownership as concrete drivers",
-      "Show consistency between what you say motivates you and your past choices"
+      "Prepare specific, thoughtful questions rather than generic ones",
+      "Ask about team structure, success metrics, or current challenges",
+      "Avoid asking questions easily answered by public information",
+      "Use this moment to reinforce genuine interest in the role"
     ]
   },
   {
-    "id": "hr_015",
-    "question": "Tell me about a time you had to work with a difficult team member. How did you manage it?",
+    "id": "hr_065",
+    "question": "Tell me about a time you had to build something from zero to one with very little guidance.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Initiative",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Describe how you defined scope and success criteria yourself",
+      "Show comfort operating with high autonomy and ambiguity",
+      "Highlight key milestones and how you validated direction along the way",
+      "Share the final outcome and its adoption or impact"
+    ]
+  },
+  {
+    "id": "hr_066",
+    "question": "How do you approach ethical dilemmas at work, such as being asked to cut a corner?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Ethics",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Show a clear personal principle for handling ethical conflicts",
+      "Describe raising the concern through appropriate channels first",
+      "Highlight balancing business pragmatism with integrity",
+      "Give a real example if you have one, without naming confidential details"
+    ]
+  },
+  {
+    "id": "hr_067",
+    "question": "Tell me about a time you had to give a presentation or demo that didn't go as planned.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Composure Under Pressure",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Google"],
+    "strong_answer_hints": [
+      "Describe what went wrong specifically and how you noticed it",
+      "Show calm improvisation rather than freezing or over-apologizing",
+      "Highlight how you recovered audience confidence",
+      "Mention what you changed to prevent a repeat next time"
+    ]
+  },
+  {
+    "id": "hr_068",
+    "question": "Describe a time you had to say no to a good idea because it wasn't the right priority.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Prioritization",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Acknowledge the merit of the idea before explaining the trade-off",
+      "Describe the prioritization framework you used to decide",
+      "Show empathy for the person whose idea was deprioritized",
+      "Mention whether and how the idea was revisited later"
+    ]
+  },
+  {
+    "id": "hr_069",
+    "question": "What would you do in your first 30, 60, and 90 days in this role?",
+    "domain": "HR",
+    "topic": "Career Goals",
+    "subtopic": "Onboarding Plan",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Show a phased plan: learning, contributing, then leading initiatives",
+      "Mention building relationships with key stakeholders early",
+      "Reference specifics about the team or product where possible",
+      "Balance ambition with realistic ramp-up expectations"
+    ]
+  },
+  {
+    "id": "hr_070",
+    "question": "Tell me about a time you had to defend a decision that turned out to be wrong.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Failure & Learning",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon"],
+    "strong_answer_hints": [
+      "Explain your original reasoning to show it wasn't reckless",
+      "Own the outcome honestly once it became clear it was wrong",
+      "Describe the corrective action you took quickly",
+      "Reflect on how you changed your decision-making process afterward"
+    ]
+  },
+  {
+    "id": "hr_071",
+    "question": "How do you handle competing priorities from two different managers or stakeholders?",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Stakeholder Management",
+    "difficulty": "Medium",
+    "companies": ["Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Describe getting both parties aligned on relative priority",
+      "Show transparent communication about capacity constraints",
+      "Highlight escalation as a last resort, done professionally",
+      "Give an example where this approach avoided a conflict"
+    ]
+  },
+  {
+    "id": "hr_072",
+    "question": "Tell me about a time you had to learn from a customer or user complaint.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Customer Focus",
+    "difficulty": "Medium",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Show you treated the complaint as valuable signal, not noise",
+      "Describe the root cause analysis you performed",
+      "Highlight the concrete fix or process change made",
+      "Share how you followed up with the customer if possible"
+    ]
+  },
+  {
+    "id": "hr_073",
+    "question": "Describe a time you had to work with someone whose skill level was significantly different from yours.",
     "domain": "HR",
     "topic": "Behavioral",
     "subtopic": "Teamwork",
     "difficulty": "Medium",
-    "companies": ["Amazon", "Microsoft", "Goldman Sachs"],
+    "companies": ["Google", "Amazon"],
     "strong_answer_hints": [
-      "Avoid badmouthing the person; stay professional and factual",
-      "Show empathy by trying to understand their perspective",
-      "Describe a specific action you took to improve the dynamic",
-      "Focus on what you learned about working with different personalities"
+      "Show adaptability in communication style based on their level",
+      "Describe patience without being condescending",
+      "Highlight what you learned from someone at a different level than you",
+      "Give a specific outcome that resulted from the collaboration"
     ]
   },
   {
-    "id": "hr_016",
-    "question": "How do you stay updated with the latest developments in technology?",
+    "id": "hr_074",
+    "question": "What is one piece of feedback you've received that changed how you work?",
     "domain": "HR",
-    "topic": "Self Development",
-    "subtopic": "Continuous Learning",
+    "topic": "Self Awareness",
+    "subtopic": "Feedback Reception",
     "difficulty": "Easy",
-    "companies": ["Google", "Amazon", "Microsoft"],
+    "companies": ["Google", "Microsoft", "Amazon"],
     "strong_answer_hints": [
-      "Mention specific resources: papers, blogs, podcasts, communities",
-      "Show you apply what you learn through side projects or experiments",
-      "Demonstrate curiosity by referencing something recent you explored",
-      "Avoid vague answers like 'I read tech news'"
+      "Pick specific, meaningful feedback rather than something trivial",
+      "Describe your initial reaction honestly, even if defensive at first",
+      "Show the concrete change in behavior that followed",
+      "Highlight the positive result of having made that change"
+    ]
+  },
+  {
+    "id": "hr_075",
+    "question": "Tell me about a time you had to balance multiple stakeholders with conflicting priorities on the same project.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Stakeholder Management",
+    "difficulty": "Hard",
+    "companies": ["Goldman Sachs", "Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Map out each stakeholder's priority and underlying motivation",
+      "Describe finding common ground or a phased compromise",
+      "Highlight transparent communication throughout the process",
+      "Share how the final result satisfied the core needs of each party"
+    ]
+  },
+  {
+    "id": "hr_076",
+    "question": "How do you keep yourself accountable when working independently with little oversight?",
+    "domain": "HR",
+    "topic": "Self Awareness",
+    "subtopic": "Self Management",
+    "difficulty": "Easy",
+    "companies": ["Microsoft", "Google"],
+    "strong_answer_hints": [
+      "Mention concrete habits like self-set milestones and check-ins",
+      "Show intrinsic motivation rather than needing external pressure",
+      "Give an example of independent work that stayed on track",
+      "Highlight proactive communication of progress to others"
+    ]
+  },
+  {
+    "id": "hr_077",
+    "question": "Tell me about a time you had to challenge the status quo to drive improvement.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Initiative",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Google"],
+    "strong_answer_hints": [
+      "Describe why the existing approach was no longer sufficient",
+      "Show how you built a case and got stakeholders on board",
+      "Highlight resistance you faced and how you navigated it",
+      "Share the measurable improvement that resulted"
+    ]
+  },
+  {
+    "id": "hr_078",
+    "question": "Describe a situation where you had to manage a high-stakes escalation.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Pressure Handling",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Goldman Sachs", "Microsoft"],
+    "strong_answer_hints": [
+      "Describe the stakes clearly and who was affected",
+      "Show a structured, calm response rather than reactive panic",
+      "Highlight clear communication to all affected stakeholders",
+      "Share the resolution and any process improvement afterward"
+    ]
+  },
+  {
+    "id": "hr_079",
+    "question": "What excites you most about the industry this company operates in?",
+    "domain": "HR",
+    "topic": "Motivation",
+    "subtopic": "Industry Interest",
+    "difficulty": "Easy",
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Show genuine, specific interest backed by examples of engagement",
+      "Reference recent industry trends or news you've followed",
+      "Connect the industry's direction to your own skills and goals",
+      "Avoid generic statements that could apply to any industry"
+    ]
+  },
+  {
+    "id": "hr_080",
+    "question": "Tell me about a time you had to rebuild a professional relationship after a conflict.",
+    "domain": "HR",
+    "topic": "Behavioral",
+    "subtopic": "Conflict Resolution",
+    "difficulty": "Hard",
+    "companies": ["Amazon", "Microsoft"],
+    "strong_answer_hints": [
+      "Describe taking the first step to address the relationship openly",
+      "Show genuine effort to understand the other person's perspective",
+      "Highlight specific actions that rebuilt trust over time",
+      "Share the state of the relationship afterward as evidence of success"
+    ]
+  },
+  {
+    "id": "hr_081",
+    "question": "Do you have any concerns about this role or our company that we can address now?",
+    "domain": "HR",
+    "topic": "Closing",
+    "subtopic": "Candidate Concerns",
+    "difficulty": "Medium",
+    "companies": ["Google", "Amazon", "Microsoft", "Goldman Sachs"],
+    "strong_answer_hints": [
+      "Be honest rather than claiming to have no concerns at all",
+      "Frame concerns constructively, focused on fit or scope questions",
+      "Show you've done enough research to ask an informed question",
+      "Use the answer to reinforce your continued interest in the role"
     ]
   }
 ]

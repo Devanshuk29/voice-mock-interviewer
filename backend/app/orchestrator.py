@@ -3,6 +3,7 @@ from langchain_core.messages import SystemMessage, HumanMessage, AIMessage
 from dotenv import load_dotenv
 import os
 import sys
+import time
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "rag"))
@@ -58,14 +59,25 @@ class InterviewOrchestrator:
         else:
             self.history.append(AIMessage(content=content))
 
-    def get_response(self, user_message: str) -> str:
-        messages = [SystemMessage(content=SYSTEM_PROMPT)]
-        messages.extend(self.history)
-        messages.append(HumanMessage(content=user_message))
-        response = self.llm.invoke(messages)
-        self.add_to_history("human", user_message)
-        self.add_to_history("ai", response.content)
-        return response.content
+    def get_response(self, user_message: str, retries: int = 3) -> str:
+        for attempt in range(retries):
+            try:
+                messages = [SystemMessage(content=SYSTEM_PROMPT)]
+                messages.extend(self.history)
+                messages.append(HumanMessage(content=user_message))
+                response = self.llm.invoke(messages)
+                self.add_to_history("human", user_message)
+                self.add_to_history("ai", response.content)
+                return response.content
+            except Exception as e:
+                print(f"  [LLM error attempt {attempt + 1}: {e}]")
+                if attempt < retries - 1:
+                    time.sleep(2)
+                else:
+                    fallback = "I'm having a brief technical issue. Could you elaborate on your last point?"
+                    self.add_to_history("human", user_message)
+                    self.add_to_history("ai", fallback)
+                    return fallback
 
     def should_move_on(self, response: str) -> bool:
         response_lower = response.lower().strip()
@@ -155,8 +167,12 @@ if __name__ == "__main__":
 
     while questions_covered <= max_questions:
         transcript = audio.record_answer()
-        if not transcript.strip():
-            print("  [no speech detected, please try again]\n")
+
+        if not transcript or len(transcript.strip()) < 5:
+            fallback = "I didn't quite catch that. Could you please repeat your answer?"
+            print(f"  [no speech detected]\n")
+            print(f"Interviewer: {fallback}\n")
+            tts.speak(fallback)
             continue
 
         print(f"\nYou said: {transcript}\n")
@@ -181,7 +197,7 @@ if __name__ == "__main__":
                 tts.speak(next_q["question"])
                 agent.add_to_history("ai", next_q["question"])
             else:
-                closing = "That concludes our session."
+                closing = "We've covered all the questions I have for this session."
                 print(f"Interviewer: {closing}\n")
                 tts.speak(closing)
                 break
@@ -194,11 +210,16 @@ if __name__ == "__main__":
     print("="*50)
     tts.speak(closing)
 
-    report = feedback_gen.generate(
-        conversation_history=agent.history,
-        domain=session["domain"],
-        difficulty=session["difficulty"]
-    )
-    feedback_gen.print_report(report)
+    try:
+        report = feedback_gen.generate(
+            conversation_history=agent.history,
+            domain=session["domain"],
+            difficulty=session["difficulty"]
+        )
+        feedback_gen.print_report(report)
+    except Exception as e:
+        print(f"\n[feedback generation failed: {e}]")
+        print("Session complete. Please review your conversation above.")
+
     audio.close()
     tts.close()

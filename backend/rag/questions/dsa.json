@@ -1,467 +1,1811 @@
 [
   {
-    "id": "dsa_001",
-    "question": "Given a binary tree, find the lowest common ancestor of two given nodes.",
+    "id": "dsa_032",
+    "question": "Given an array, answer multiple range sum queries efficiently.",
     "domain": "DSA",
-    "topic": "Trees",
-    "subtopic": "Binary Trees",
-    "difficulty": "Medium",
-    "companies": ["Google", "Microsoft", "Amazon"],
+    "topic": "Arrays",
+    "subtopic": "Prefix Sum",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
     "strong_answer_hints": [
-      "Recursively traverse left and right subtrees",
-      "If current node equals p or q, return it",
-      "LCA is the node where both sides return non-null",
-      "Time O(N), Space O(H) where H is tree height"
+      "Precompute prefix sum array where prefix[i] = sum of first i elements",
+      "Range sum(l,r) = prefix[r+1] - prefix[l]",
+      "Preprocessing O(N), each query O(1)",
+      "Useful when there are many queries on a static array"
     ]
   },
   {
-    "id": "dsa_002",
-    "question": "Explain how you would detect a cycle in a linked list.",
+    "id": "dsa_033",
+    "question": "Given an array of 0s, 1s, and 2s, sort it in-place in one pass.",
     "domain": "DSA",
-    "topic": "Linked Lists",
-    "subtopic": "Cycle Detection",
-    "difficulty": "Easy",
-    "companies": ["Amazon", "Microsoft"],
+    "topic": "Arrays",
+    "subtopic": "Dutch National Flag",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Microsoft"
+    ],
     "strong_answer_hints": [
-      "Use Floyd's cycle detection (slow and fast pointer)",
-      "Slow moves one step, fast moves two steps",
-      "If they meet, a cycle exists",
+      "Use three pointers: low, mid, high",
+      "Swap 0s to the front, 2s to the back, leave 1s in the middle",
+      "Move mid pointer forward only when no swap with high is needed",
       "Time O(N), Space O(1)"
     ]
   },
   {
-    "id": "dsa_003",
-    "question": "Given an array of integers, find two numbers that add up to a target sum.",
+    "id": "dsa_034",
+    "question": "Find the maximum product subarray in an array that may contain negative numbers.",
     "domain": "DSA",
     "topic": "Arrays",
-    "subtopic": "Two Pointer / Hashing",
-    "difficulty": "Easy",
-    "companies": ["Google", "Amazon", "Goldman Sachs"],
+    "subtopic": "Kadane Variant",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon"
+    ],
     "strong_answer_hints": [
-      "Use a hashmap to store complements while iterating",
-      "Check if target minus current element exists in map",
-      "Time O(N), Space O(N)",
-      "Mention the brute force O(N^2) tradeoff"
+      "Track both max and min product ending at current index",
+      "A negative number can flip min to max and vice versa",
+      "Update global max at each step",
+      "Time O(N), Space O(1)"
     ]
   },
   {
-    "id": "dsa_004",
-    "question": "How would you find the maximum depth of a binary tree?",
+    "id": "dsa_035",
+    "question": "Given an array of numbers, find the next lexicographically greater permutation.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Next Permutation",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Find the first decreasing element from the right (pivot)",
+      "Find the smallest element to the right of pivot that is larger, swap",
+      "Reverse the suffix after the pivot position",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_036",
+    "question": "Given an elevation map, compute how much water it can trap after raining.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use two pointers from left and right tracking max height seen so far",
+      "Water at a position is min(leftMax, rightMax) - height[i]",
+      "Move the pointer with the smaller max inward",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_037",
+    "question": "Find the element that appears more than n/2 times in an array.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Majority Element",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use Boyer-Moore voting algorithm",
+      "Maintain a candidate and a count, increment/decrement based on match",
+      "Reset candidate when count hits zero",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_038",
+    "question": "Count the number of subarrays whose sum equals a given value k.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Subarray Sum Equals K",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use a hashmap of prefix sum frequency",
+      "For each prefix sum, check if prefixSum - k exists in map",
+      "Increment count and update map as you iterate",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_039",
+    "question": "Given an array of strings, group the anagrams together.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Group Anagrams",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use sorted string or character count tuple as hashmap key",
+      "Append each string to the list for its key",
+      "Return grouped values from the map",
+      "Time O(N*K log K) where K is max string length"
+    ]
+  },
+  {
+    "id": "dsa_040",
+    "question": "Find the longest palindromic substring in a given string.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Longest Palindromic Substring",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Expand around center for each index, considering odd and even length",
+      "Track the longest palindrome found so far",
+      "Alternative: Manacher's algorithm for O(N)",
+      "Time O(N^2) with expand-around-center, Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_041",
+    "question": "Find the smallest substring containing all characters of another string.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use sliding window with a frequency map of required characters",
+      "Expand right pointer until window is valid, then shrink left pointer",
+      "Track minimum window size and starting index",
+      "Time O(N+M), Space O(M)"
+    ]
+  },
+  {
+    "id": "dsa_042",
+    "question": "Implement atoi to convert a string to an integer, handling edge cases.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "String to Integer (atoi)",
+    "difficulty": "Medium",
+    "companies": [
+      "Microsoft",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Skip leading whitespace, then optional sign",
+      "Parse digits until a non-digit character",
+      "Clamp result to 32-bit integer range",
+      "Discuss overflow and invalid input handling"
+    ]
+  },
+  {
+    "id": "dsa_043",
+    "question": "Find the longest common prefix string among an array of strings.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Longest Common Prefix",
+    "difficulty": "Easy",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Compare characters column by column across all strings",
+      "Stop at first mismatch or shortest string length",
+      "Alternative: sort strings and compare first and last only",
+      "Time O(N*M) where M is shortest string length"
+    ]
+  },
+  {
+    "id": "dsa_044",
+    "question": "Given a string and a dictionary, determine if the string can be segmented into dictionary words.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Word Break",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use DP where dp[i] means prefix of length i is segmentable",
+      "For each i, check all j < i where dp[j] is true and s[j:i] in dictionary",
+      "Base case dp[0] = true",
+      "Time O(N^2), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_045",
+    "question": "Determine if a string of brackets is valid (properly matched and nested).",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Valid Parentheses",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Google",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use a stack to push opening brackets",
+      "On closing bracket, pop and check it matches the expected opening",
+      "String is valid if stack is empty at the end",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_046",
+    "question": "Decode an encoded string like '3[a2[c]]' into its expanded form.",
+    "domain": "DSA",
+    "topic": "Strings",
+    "subtopic": "Decode String",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use a stack to store previous string and repeat count on encountering '['",
+      "On ']', pop and repeat the current segment, append to previous string",
+      "Build numbers digit by digit before encountering '['",
+      "Time O(N) where N is length of decoded output"
+    ]
+  },
+  {
+    "id": "dsa_047",
+    "question": "Reverse a singly linked list.",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Reverse Linked List",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Iteratively re-point next pointers while tracking prev and current",
+      "Alternative recursive approach reverses from the tail backward",
+      "Update head to the new front after reversal",
+      "Time O(N), Space O(1) iterative"
+    ]
+  },
+  {
+    "id": "dsa_048",
+    "question": "Merge two sorted linked lists into one sorted list.",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Merge Two Sorted Lists",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use a dummy head node to simplify edge cases",
+      "Compare current nodes of both lists, attach smaller one",
+      "Attach remaining nodes once one list is exhausted",
+      "Time O(N+M), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_049",
+    "question": "Remove the nth node from the end of a linked list in one pass.",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Remove Nth Node From End",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use two pointers with a gap of n nodes between them",
+      "Move both pointers until the fast one reaches the end",
+      "Slow pointer's next is the node to remove",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_050",
+    "question": "Add two numbers represented as linked lists of digits in reverse order.",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Add Two Numbers",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Traverse both lists simultaneously, summing digits with carry",
+      "Create new nodes for the result list as you go",
+      "Handle remaining carry after both lists are exhausted",
+      "Time O(max(N,M)), Space O(max(N,M))"
+    ]
+  },
+  {
+    "id": "dsa_051",
+    "question": "Reorder a linked list so nodes alternate from front and back (L0,Ln,L1,Ln-1...).",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Reorder List",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Find the middle using slow/fast pointers",
+      "Reverse the second half of the list",
+      "Merge the two halves alternately",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_052",
+    "question": "Deep copy a linked list where each node has an additional random pointer.",
+    "domain": "DSA",
+    "topic": "Linked Lists",
+    "subtopic": "Copy List with Random Pointer",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Interleave cloned nodes with original nodes first",
+      "Set random pointers of clones using original's random.next",
+      "Detach interleaved list into original and cloned lists",
+      "Time O(N), Space O(1) excluding output"
+    ]
+  },
+  {
+    "id": "dsa_053",
+    "question": "Find the diameter (longest path between any two nodes) of a binary tree.",
     "domain": "DSA",
     "topic": "Trees",
-    "subtopic": "Binary Trees",
+    "subtopic": "Diameter of Binary Tree",
     "difficulty": "Easy",
-    "companies": ["Microsoft", "Amazon"],
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
     "strong_answer_hints": [
-      "Recursively compute depth of left and right subtree",
-      "Return 1 + max(left depth, right depth)",
-      "Base case: null node returns 0",
+      "Recursively compute height while tracking max diameter at each node",
+      "Diameter through a node = left height + right height",
+      "Update global max during the height recursion",
       "Time O(N), Space O(H)"
     ]
   },
   {
-    "id": "dsa_005",
-    "question": "Given a string, determine if it is a valid palindrome considering only alphanumeric characters.",
+    "id": "dsa_054",
+    "question": "Traverse a binary tree level by level and return values grouped by level.",
     "domain": "DSA",
-    "topic": "Strings",
-    "subtopic": "Two Pointer",
-    "difficulty": "Easy",
-    "companies": ["Google", "Microsoft"],
-    "strong_answer_hints": [
-      "Use two pointers from both ends",
-      "Skip non-alphanumeric characters",
-      "Compare characters case-insensitively",
-      "Time O(N), Space O(1)"
-    ]
-  },
-  {
-    "id": "dsa_006",
-    "question": "Explain how you would find the longest substring without repeating characters.",
-    "domain": "DSA",
-    "topic": "Strings",
-    "subtopic": "Sliding Window",
+    "topic": "Trees",
+    "subtopic": "Binary Tree Level Order Traversal",
     "difficulty": "Medium",
-    "companies": ["Amazon", "Google"],
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
     "strong_answer_hints": [
-      "Use sliding window with a hashset or hashmap of last seen index",
-      "Expand right pointer, shrink left pointer on duplicate",
-      "Track max window length seen",
-      "Time O(N), Space O(min(N, charset size))"
+      "Use a queue (BFS), process one level at a time",
+      "Track the size of the queue at the start of each level",
+      "Append level values to result before moving to next level",
+      "Time O(N), Space O(N)"
     ]
   },
   {
-    "id": "dsa_007",
-    "question": "How would you implement a graph traversal using BFS? When would you prefer it over DFS?",
+    "id": "dsa_055",
+    "question": "Return the values visible when viewing a binary tree from the right side.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Right Side View of Binary Tree",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Perform level order traversal, take last node value of each level",
+      "Alternative: DFS with depth tracking, record first node seen at each depth from the right",
+      "Time O(N), Space O(N)",
+      "Explain both BFS and DFS approaches"
+    ]
+  },
+  {
+    "id": "dsa_056",
+    "question": "Construct a binary tree given its preorder and inorder traversal arrays.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Construct Binary Tree from Preorder and Inorder",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "First element of preorder is the root",
+      "Find root's position in inorder to split left and right subtrees",
+      "Recursively build left and right subtrees using computed boundaries",
+      "Use a hashmap for O(1) index lookup, Time O(N)"
+    ]
+  },
+  {
+    "id": "dsa_057",
+    "question": "Find the kth smallest element in a binary search tree.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Kth Smallest Element in BST",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Perform inorder traversal which visits BST nodes in sorted order",
+      "Stop early once the kth element is reached",
+      "Alternative: augment tree nodes with subtree size for O(log N) queries",
+      "Time O(H+K) for basic inorder approach"
+    ]
+  },
+  {
+    "id": "dsa_058",
+    "question": "Find the lowest common ancestor of two nodes in a binary search tree.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Lowest Common Ancestor in BST",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use BST property: compare node value with both targets",
+      "If both targets are smaller, go left; if both larger, go right",
+      "Otherwise current node is the LCA",
+      "Time O(H), Space O(1) iterative"
+    ]
+  },
+  {
+    "id": "dsa_059",
+    "question": "Flatten a binary tree into a linked list following preorder traversal.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Flatten Binary Tree to Linked List",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Recursively flatten left and right subtrees first",
+      "Attach flattened left subtree between node and flattened right subtree",
+      "Set left child to null after rewiring",
+      "Time O(N), Space O(H)"
+    ]
+  },
+  {
+    "id": "dsa_060",
+    "question": "Count the number of paths in a binary tree that sum to a target value (not necessarily root-to-leaf).",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Path Sum III",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use prefix sum technique similar to subarray sum problem",
+      "Maintain a hashmap of prefix sum frequencies along the current root-to-node path",
+      "Backtrack by removing prefix sum count when leaving a node",
+      "Time O(N), Space O(H)"
+    ]
+  },
+  {
+    "id": "dsa_061",
+    "question": "Given a reference node in a connected graph, return a deep copy of the graph.",
     "domain": "DSA",
     "topic": "Graphs",
-    "subtopic": "BFS/DFS",
+    "subtopic": "Clone Graph",
     "difficulty": "Medium",
-    "companies": ["Amazon", "Microsoft", "Google"],
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
     "strong_answer_hints": [
-      "Use a queue, mark nodes visited on enqueue",
-      "BFS finds shortest path in unweighted graphs",
-      "DFS is preferred for exploring all paths or detecting cycles",
+      "Use DFS or BFS with a hashmap from original node to cloned node",
+      "Clone neighbors recursively, checking the map to avoid infinite loops",
+      "Return the clone corresponding to the given start node",
       "Time O(V+E), Space O(V)"
     ]
   },
   {
-    "id": "dsa_008",
-    "question": "Given a set of intervals, merge all overlapping intervals.",
-    "domain": "DSA",
-    "topic": "Arrays",
-    "subtopic": "Intervals",
-    "difficulty": "Medium",
-    "companies": ["Google", "Amazon", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Sort intervals by start time",
-      "Iterate and merge if current start <= previous end",
-      "Otherwise push as a new interval",
-      "Time O(N log N), Space O(N)"
-    ]
-  },
-  {
-    "id": "dsa_009",
-    "question": "Explain the difference between memoization and tabulation in dynamic programming.",
-    "domain": "DSA",
-    "topic": "Dynamic Programming",
-    "subtopic": "DP Fundamentals",
-    "difficulty": "Medium",
-    "companies": ["Google", "Microsoft", "Amazon"],
-    "strong_answer_hints": [
-      "Memoization is top-down with recursion and caching",
-      "Tabulation is bottom-up using iterative table filling",
-      "Memoization can have recursion overhead, tabulation avoids it",
-      "Both reduce exponential time to polynomial by avoiding recomputation"
-    ]
-  },
-  {
-    "id": "dsa_010",
-    "question": "How would you solve the 0/1 Knapsack problem?",
-    "domain": "DSA",
-    "topic": "Dynamic Programming",
-    "subtopic": "Knapsack",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Build a DP table of items vs capacity",
-      "For each item, choose max(include, exclude)",
-      "dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w-weight[i]])",
-      "Time O(N*W), Space can be optimized to O(W)"
-    ]
-  },
-  {
-    "id": "dsa_011",
-    "question": "Given an unsorted array, find the kth largest element.",
-    "domain": "DSA",
-    "topic": "Sorting",
-    "subtopic": "Quickselect / Heaps",
-    "difficulty": "Medium",
-    "companies": ["Google", "Amazon"],
-    "strong_answer_hints": [
-      "Use a min-heap of size k for O(N log K)",
-      "Or use Quickselect for average O(N)",
-      "Mention worst case O(N^2) for Quickselect without randomization",
-      "Compare tradeoffs between the two approaches"
-    ]
-  },
-  {
-    "id": "dsa_012",
-    "question": "Explain how a hashmap resolves collisions.",
-    "domain": "DSA",
-    "topic": "Hashing",
-    "subtopic": "Collision Resolution",
-    "difficulty": "Medium",
-    "companies": ["Google", "Microsoft", "Amazon"],
-    "strong_answer_hints": [
-      "Chaining: store colliding entries in a linked list or tree per bucket",
-      "Open addressing: probe for the next free slot (linear/quadratic/double hashing)",
-      "Discuss load factor and resizing",
-      "Average O(1) lookup, worst case O(N) with poor hash distribution"
-    ]
-  },
-  {
-    "id": "dsa_013",
-    "question": "How would you check if a binary tree is balanced?",
-    "domain": "DSA",
-    "topic": "Trees",
-    "subtopic": "Binary Trees",
-    "difficulty": "Medium",
-    "companies": ["Microsoft", "Amazon"],
-    "strong_answer_hints": [
-      "Recursively compute height while checking balance",
-      "A tree is balanced if height difference of subtrees <= 1 at every node",
-      "Return -1 early if any subtree is unbalanced to avoid recomputation",
-      "Time O(N), Space O(H)"
-    ]
-  },
-  {
-    "id": "dsa_014",
-    "question": "Given a matrix, how would you rotate it 90 degrees in place?",
-    "domain": "DSA",
-    "topic": "Arrays",
-    "subtopic": "Matrix",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Google"],
-    "strong_answer_hints": [
-      "Transpose the matrix first",
-      "Then reverse each row",
-      "This achieves an in-place rotation without extra space",
-      "Time O(N^2), Space O(1)"
-    ]
-  },
-  {
-    "id": "dsa_015",
-    "question": "Explain how Dijkstra's algorithm works for finding the shortest path.",
+    "id": "dsa_062",
+    "question": "Determine if it's possible to finish all courses given prerequisite pairs.",
     "domain": "DSA",
     "topic": "Graphs",
-    "subtopic": "Shortest Path",
-    "difficulty": "Hard",
-    "companies": ["Google", "Amazon", "Microsoft"],
+    "subtopic": "Course Schedule",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon",
+      "Microsoft"
+    ],
     "strong_answer_hints": [
-      "Use a min-priority queue to always expand the closest unvisited node",
-      "Relax edges and update distances if a shorter path is found",
-      "Doesn't work correctly with negative weight edges",
-      "Time O((V+E) log V) with a binary heap"
+      "Model as a directed graph and detect if a cycle exists",
+      "Use Kahn's algorithm (BFS with in-degree) or DFS with recursion stack tracking",
+      "If a cycle exists, courses cannot be completed",
+      "Time O(V+E), Space O(V+E)"
     ]
   },
   {
-    "id": "dsa_016",
-    "question": "Given a string, find all permutations of it.",
+    "id": "dsa_063",
+    "question": "Given a matrix representing direct connections, find the number of connected groups (provinces).",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Number of Provinces",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Treat matrix as adjacency matrix of an undirected graph",
+      "Use DFS/BFS or union-find to find connected components",
+      "Count number of components found",
+      "Time O(N^2) for matrix traversal"
+    ]
+  },
+  {
+    "id": "dsa_064",
+    "question": "Find the shortest transformation sequence length from a start word to an end word, changing one letter at a time.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Word Ladder",
+    "difficulty": "Hard",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Model each word as a node, edges between words differing by one letter",
+      "Use BFS from start word to find shortest path to end word",
+      "Precompute or generate neighbors by trying all letter substitutions",
+      "Time O(N*L^2*26) where N is word count, L is word length"
+    ]
+  },
+  {
+    "id": "dsa_065",
+    "question": "Given a network of nodes with travel times, find the time for a signal to reach all nodes from a source.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Network Delay Time",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use Dijkstra's algorithm from the source node",
+      "Track minimum distance to each node using a priority queue",
+      "Answer is the maximum distance among all reachable nodes, or -1 if unreachable",
+      "Time O((V+E) log V)"
+    ]
+  },
+  {
+    "id": "dsa_066",
+    "question": "Given a graph with one extra edge causing a cycle, find that edge.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Redundant Connection",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use union-find (disjoint set union) processing edges in order",
+      "If two endpoints already share a root, that edge is redundant",
+      "Union the sets otherwise",
+      "Time O(N \u03b1(N)) with path compression and union by rank"
+    ]
+  },
+  {
+    "id": "dsa_067",
+    "question": "Find the minimum spanning tree of a weighted undirected graph.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Minimum Spanning Tree (Kruskal's)",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Sort all edges by weight ascending",
+      "Use union-find to add edges that don't form a cycle",
+      "Stop once N-1 edges are added",
+      "Time O(E log E) dominated by sorting"
+    ]
+  },
+  {
+    "id": "dsa_068",
+    "question": "Find the length of the longest strictly increasing subsequence in an array.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Longest Increasing Subsequence",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "DP approach: dp[i] = length of LIS ending at i, O(N^2)",
+      "Optimized approach uses binary search with a tails array for O(N log N)",
+      "Explain how the tails array represents smallest tail of increasing subsequences of each length",
+      "Time O(N log N) optimized"
+    ]
+  },
+  {
+    "id": "dsa_069",
+    "question": "Given coin denominations, find the minimum number of coins to make a target amount.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Coin Change",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "DP where dp[amount] = min coins to make that amount",
+      "For each amount, try every coin and take min of dp[amount-coin]+1",
+      "Initialize dp[0]=0 and others to infinity",
+      "Time O(amount * coins), Space O(amount)"
+    ]
+  },
+  {
+    "id": "dsa_070",
+    "question": "Find the minimum number of operations to convert one string into another.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Edit Distance",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "DP table dp[i][j] representing edit distance between prefixes",
+      "If characters match, dp[i][j]=dp[i-1][j-1], else 1+min(insert,delete,replace)",
+      "Base cases are converting empty string to prefix of other",
+      "Time O(N*M), Space can be optimized to O(min(N,M))"
+    ]
+  },
+  {
+    "id": "dsa_071",
+    "question": "Find the length of the longest common subsequence between two strings.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Longest Common Subsequence",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "DP table where dp[i][j] represents LCS of prefixes of length i and j",
+      "If characters match, dp[i][j]=dp[i-1][j-1]+1, else max of neighbors",
+      "Reconstruct actual subsequence by backtracking through table if needed",
+      "Time O(N*M), Space O(N*M) or O(min(N,M)) optimized"
+    ]
+  },
+  {
+    "id": "dsa_072",
+    "question": "Given houses with money, find max amount robbable without robbing two adjacent houses.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "House Robber",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "DP where dp[i] = max(dp[i-1], dp[i-2]+nums[i])",
+      "Can be optimized to O(1) space using two rolling variables",
+      "Handle base cases for first one or two houses",
+      "Time O(N), Space O(1) optimized"
+    ]
+  },
+  {
+    "id": "dsa_073",
+    "question": "Determine if an array can be partitioned into two subsets with equal sum.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Partition Equal Subset Sum",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "If total sum is odd, partition is impossible",
+      "Reduce to subset-sum problem for target = totalSum/2",
+      "Use a boolean DP array iterating items and updating achievable sums backward",
+      "Time O(N*Sum), Space O(Sum)"
+    ]
+  },
+  {
+    "id": "dsa_074",
+    "question": "Count the number of unique paths from top-left to bottom-right of a grid moving only right or down.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Unique Paths",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "DP where dp[i][j] = dp[i-1][j] + dp[i][j-1]",
+      "Base case: first row and first column all have 1 path",
+      "Can use combinatorics formula C(m+n-2, m-1) as an alternative",
+      "Time O(M*N), Space can be optimized to O(N)"
+    ]
+  },
+  {
+    "id": "dsa_075",
+    "question": "Count how many palindromic substrings exist in a given string.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Palindromic Substrings Count",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Expand around center for each possible center, count valid palindromes",
+      "Consider both odd-length and even-length centers",
+      "Alternative: DP table tracking palindrome status of substrings",
+      "Time O(N^2), Space O(1) with expand-around-center"
+    ]
+  },
+  {
+    "id": "dsa_076",
+    "question": "Return all possible sentences formed by segmenting a string using dictionary words.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Word Break II",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use backtracking combined with memoization to avoid recomputation",
+      "For each valid prefix in dictionary, recursively solve the remainder",
+      "Cache results for substrings already solved",
+      "Time complexity can be exponential in worst case despite memoization"
+    ]
+  },
+  {
+    "id": "dsa_077",
+    "question": "Place N queens on an N x N chessboard so that no two queens attack each other.",
     "domain": "DSA",
     "topic": "Backtracking",
-    "subtopic": "Permutations",
-    "difficulty": "Medium",
-    "companies": ["Microsoft", "Amazon"],
-    "strong_answer_hints": [
-      "Use backtracking by swapping characters or marking used indices",
-      "Build permutation character by character, backtrack on completion",
-      "Time O(N! * N) since there are N! permutations",
-      "Mention handling duplicate characters if asked"
-    ]
-  },
-  {
-    "id": "dsa_017",
-    "question": "How would you find the median of two sorted arrays?",
-    "domain": "DSA",
-    "topic": "Arrays",
-    "subtopic": "Binary Search",
+    "subtopic": "N-Queens",
     "difficulty": "Hard",
-    "companies": ["Google", "Goldman Sachs"],
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
     "strong_answer_hints": [
-      "Binary search on the smaller array to find correct partition",
-      "Ensure left partition elements <= right partition elements",
-      "Handle even/odd total length cases separately",
-      "Time O(log(min(N,M)))"
+      "Place queens row by row, trying each column",
+      "Track attacked columns and diagonals using sets",
+      "Backtrack when no valid position exists in current row",
+      "Time O(N!) in the worst case"
     ]
   },
   {
-    "id": "dsa_018",
-    "question": "Explain topological sort and when it would be used.",
+    "id": "dsa_078",
+    "question": "Generate all possible subsets of a given set of distinct integers.",
     "domain": "DSA",
-    "topic": "Graphs",
-    "subtopic": "Topological Sort",
+    "topic": "Backtracking",
+    "subtopic": "Subsets",
     "difficulty": "Medium",
-    "companies": ["Google", "Amazon"],
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
     "strong_answer_hints": [
-      "Used for DAGs to order nodes respecting dependencies",
-      "Can use Kahn's algorithm (BFS with in-degree) or DFS-based approach",
-      "Used in build systems, task scheduling, course prerequisites",
-      "Time O(V+E)"
+      "Use backtracking, at each index choose to include or exclude the element",
+      "Alternative: iterative bit-manipulation approach using 2^N combinations",
+      "Base case adds current subset to result",
+      "Time O(2^N * N) to generate and copy all subsets"
     ]
   },
   {
-    "id": "dsa_019",
-    "question": "Given a binary search tree, how would you validate that it is a valid BST?",
+    "id": "dsa_079",
+    "question": "Find all unique combinations of candidates that sum to a target, reusing numbers allowed.",
     "domain": "DSA",
-    "topic": "Trees",
-    "subtopic": "BST",
+    "topic": "Backtracking",
+    "subtopic": "Combination Sum",
     "difficulty": "Medium",
-    "companies": ["Microsoft", "Amazon", "Google"],
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
     "strong_answer_hints": [
-      "Recursively pass down valid min/max bounds for each node",
-      "Inorder traversal of a valid BST should be strictly increasing",
-      "Common mistake: only comparing with immediate children, not ancestors",
-      "Time O(N), Space O(H)"
+      "Backtrack while allowing the same element to be reused",
+      "Sort candidates first to prune early when remaining target goes negative",
+      "Avoid duplicate combinations by only considering elements from current index onward",
+      "Time complexity depends on number of valid combinations, exponential worst case"
     ]
   },
   {
-    "id": "dsa_020",
-    "question": "How would you implement an LRU cache?",
+    "id": "dsa_080",
+    "question": "Solve a given Sudoku puzzle by filling empty cells.",
+    "domain": "DSA",
+    "topic": "Backtracking",
+    "subtopic": "Sudoku Solver",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use backtracking trying digits 1-9 in each empty cell",
+      "Maintain sets for rows, columns, and boxes to check validity in O(1)",
+      "Backtrack when no digit is valid at a cell",
+      "Time complexity is exponential but constrained heavily by Sudoku rules"
+    ]
+  },
+  {
+    "id": "dsa_081",
+    "question": "Given a grid of letters, determine if a given word exists by tracing adjacent cells.",
+    "domain": "DSA",
+    "topic": "Backtracking",
+    "subtopic": "Word Search",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "DFS from each cell matching the first letter",
+      "Mark cells visited temporarily during the search, unmark on backtrack",
+      "Explore all four directions at each step",
+      "Time O(rows*cols*4^L) where L is word length"
+    ]
+  },
+  {
+    "id": "dsa_082",
+    "question": "Merge k sorted linked lists into a single sorted list.",
+    "domain": "DSA",
+    "topic": "Heaps",
+    "subtopic": "Merge K Sorted Lists",
+    "difficulty": "Hard",
+    "companies": [
+      "Amazon",
+      "Google",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use a min-heap holding the head node of each list",
+      "Pop the smallest, push its next node if it exists",
+      "Repeat until heap is empty, building the merged list",
+      "Time O(N log K) where N is total nodes and K is number of lists"
+    ]
+  },
+  {
+    "id": "dsa_083",
+    "question": "Find the k most frequent elements in an array.",
+    "domain": "DSA",
+    "topic": "Heaps",
+    "subtopic": "Top K Frequent Elements",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Count frequencies using a hashmap",
+      "Use a min-heap of size k to keep the top k frequent elements",
+      "Alternative: bucket sort by frequency for O(N) time",
+      "Time O(N log K) with heap approach"
+    ]
+  },
+  {
+    "id": "dsa_084",
+    "question": "Design a structure to add numbers and find the median efficiently at any point.",
+    "domain": "DSA",
+    "topic": "Heaps",
+    "subtopic": "Find Median from Data Stream",
+    "difficulty": "Hard",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Maintain two heaps: max-heap for lower half, min-heap for upper half",
+      "Balance heap sizes so they differ by at most one",
+      "Median is either top of larger heap or average of both tops",
+      "Add O(log N), find median O(1)"
+    ]
+  },
+  {
+    "id": "dsa_085",
+    "question": "Design a class to continuously find the kth largest element as numbers are added to a stream.",
+    "domain": "DSA",
+    "topic": "Heaps",
+    "subtopic": "Kth Largest Element in a Stream",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Maintain a min-heap of size k",
+      "If heap exceeds size k, pop the smallest",
+      "Top of heap is always the kth largest element",
+      "Add operation O(log K)"
+    ]
+  },
+  {
+    "id": "dsa_086",
+    "question": "Design a stack that supports push, pop, top, and retrieving the minimum element in O(1).",
+    "domain": "DSA",
+    "topic": "Stacks/Queues",
+    "subtopic": "Min Stack",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Maintain an auxiliary stack tracking the current minimum at each level",
+      "Push the new minimum onto the aux stack whenever a smaller value is pushed",
+      "Pop from both stacks together to keep them in sync",
+      "All operations O(1) time, O(N) space"
+    ]
+  },
+  {
+    "id": "dsa_087",
+    "question": "Implement a FIFO queue using only two stacks.",
+    "domain": "DSA",
+    "topic": "Stacks/Queues",
+    "subtopic": "Implement Queue using Stacks",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use an input stack for pushes and an output stack for pops",
+      "Transfer elements from input to output stack only when output is empty",
+      "This amortizes the cost so each operation is O(1) amortized",
+      "Discuss why single stack can't achieve FIFO order"
+    ]
+  },
+  {
+    "id": "dsa_088",
+    "question": "Given daily temperatures, find how many days until a warmer temperature for each day.",
+    "domain": "DSA",
+    "topic": "Stacks/Queues",
+    "subtopic": "Daily Temperatures",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use a monotonic decreasing stack of indices",
+      "Pop from stack whenever current temperature is higher, compute the day gap",
+      "Push current index onto stack after processing",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_089",
+    "question": "Find the maximum value in every sliding window of size k in an array.",
+    "domain": "DSA",
+    "topic": "Stacks/Queues",
+    "subtopic": "Sliding Window Maximum",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use a deque storing indices in decreasing order of their values",
+      "Remove indices out of the current window from the front",
+      "Remove smaller values from the back before adding new element",
+      "Time O(N), Space O(K)"
+    ]
+  },
+  {
+    "id": "dsa_090",
+    "question": "Evaluate an arithmetic expression given in reverse Polish (postfix) notation.",
+    "domain": "DSA",
+    "topic": "Stacks/Queues",
+    "subtopic": "Evaluate Reverse Polish Notation",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use a stack, push numbers as encountered",
+      "On an operator, pop two operands, apply operator, push result back",
+      "Final value on stack is the result",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_091",
+    "question": "Search a target in a rotated sorted array that may contain duplicates.",
+    "domain": "DSA",
+    "topic": "Binary Search",
+    "subtopic": "Search in Rotated Sorted Array II",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Similar to standard rotated search but handle duplicate edge case at boundaries",
+      "When left, mid, and right values are equal, shrink both pointers by one",
+      "Otherwise determine which half is properly sorted and search accordingly",
+      "Time O(log N) average, O(N) worst case due to duplicates"
+    ]
+  },
+  {
+    "id": "dsa_092",
+    "question": "Find the minimum element in a rotated sorted array.",
+    "domain": "DSA",
+    "topic": "Binary Search",
+    "subtopic": "Find Minimum in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use binary search comparing mid element with rightmost element",
+      "If mid > right, minimum lies in right half, else in left half including mid",
+      "Converge until left equals right",
+      "Time O(log N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_093",
+    "question": "Find the minimum eating speed so Koko can finish all banana piles within h hours.",
+    "domain": "DSA",
+    "topic": "Binary Search",
+    "subtopic": "Koko Eating Bananas",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Binary search on the answer (eating speed) between 1 and max pile size",
+      "For each candidate speed, compute total hours needed and compare to h",
+      "Narrow search space based on feasibility",
+      "Time O(N log(max pile size))"
+    ]
+  },
+  {
+    "id": "dsa_094",
+    "question": "Find the minimum ship capacity to ship all packages within D days.",
+    "domain": "DSA",
+    "topic": "Binary Search",
+    "subtopic": "Capacity To Ship Packages Within D Days",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Binary search on capacity between max weight and total weight",
+      "For each candidate capacity, simulate greedy day-by-day loading",
+      "Adjust binary search bounds based on whether days needed exceed D",
+      "Time O(N log(sum of weights))"
+    ]
+  },
+  {
+    "id": "dsa_095",
+    "question": "Design a simplified Twitter supporting posting tweets, following users, and viewing a news feed.",
     "domain": "DSA",
     "topic": "Design",
-    "subtopic": "Hashing + Linked List",
-    "difficulty": "Hard",
-    "companies": ["Amazon", "Google", "Microsoft"],
+    "subtopic": "Design Twitter",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
     "strong_answer_hints": [
-      "Use a hashmap for O(1) lookup combined with a doubly linked list for ordering",
-      "Move accessed nodes to front, evict from the back when capacity exceeded",
-      "Both get and put operations should be O(1)",
-      "Discuss why a simple array or single linked list wouldn't achieve O(1)"
+      "Store tweets per user with timestamps in a list or linked structure",
+      "Use a max-heap to merge the most recent tweets across followed users",
+      "Maintain a hashmap of user to set of followed user ids",
+      "getNewsFeed can be O(K log U) using a heap over followed users"
     ]
   },
   {
-    "id": "dsa_021",
-    "question": "Given an array, find the maximum sum of a contiguous subarray.",
+    "id": "dsa_096",
+    "question": "Design a rate limiter that allows at most N requests per time window per user.",
     "domain": "DSA",
-    "topic": "Dynamic Programming",
-    "subtopic": "Kadane's Algorithm",
-    "difficulty": "Easy",
-    "companies": ["Amazon", "Microsoft"],
+    "topic": "Design",
+    "subtopic": "Design a Rate Limiter",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
     "strong_answer_hints": [
-      "Use Kadane's algorithm tracking current sum and max sum",
-      "Reset current sum to 0 if it becomes negative",
-      "Time O(N), Space O(1)",
-      "Mention handling all-negative arrays as an edge case"
+      "Use a sliding window log or sliding window counter algorithm",
+      "Store timestamps of requests per user, evict ones outside the window",
+      "Alternative: token bucket algorithm for smoother rate limiting",
+      "Discuss tradeoffs between memory usage and precision of the algorithms"
     ]
   },
   {
-    "id": "dsa_022",
-    "question": "Explain how you would serialize and deserialize a binary tree.",
+    "id": "dsa_097",
+    "question": "Design a system that suggests top matching sentences as a user types.",
+    "domain": "DSA",
+    "topic": "Design",
+    "subtopic": "Design a Search Autocomplete System",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use a trie storing sentences with frequency counts at terminal nodes",
+      "Traverse the trie following typed characters, collect and rank candidates",
+      "Use a heap or sorted structure to return top matches by frequency",
+      "Time per keystroke O(prefix length + candidates log K)"
+    ]
+  },
+  {
+    "id": "dsa_098",
+    "question": "Design a Least Frequently Used cache with O(1) get and put operations.",
+    "domain": "DSA",
+    "topic": "Design",
+    "subtopic": "LFU Cache",
+    "difficulty": "Hard",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Maintain a hashmap of key to node, and frequency buckets each holding a doubly linked list",
+      "Track minimum frequency to know which bucket to evict from",
+      "On access, move a node to the next frequency bucket",
+      "Both get and put are O(1) amortized"
+    ]
+  },
+  {
+    "id": "dsa_099",
+    "question": "Implement power function x raised to n efficiently.",
+    "domain": "DSA",
+    "topic": "Math",
+    "subtopic": "Pow(x, n)",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use fast exponentiation (binary exponentiation)",
+      "Square the base and halve the exponent each step",
+      "Handle negative exponents by inverting the base",
+      "Time O(log N), Space O(1) iterative or O(log N) recursive"
+    ]
+  },
+  {
+    "id": "dsa_100",
+    "question": "Convert a Roman numeral string to an integer.",
+    "domain": "DSA",
+    "topic": "Math",
+    "subtopic": "Roman to Integer",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Map each Roman symbol to its integer value",
+      "Iterate left to right, subtract if current value is less than next value",
+      "Otherwise add current value",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_101",
+    "question": "Compute the integer square root of a non-negative integer without using built-in power functions.",
+    "domain": "DSA",
+    "topic": "Math",
+    "subtopic": "Sqrt(x)",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Binary search between 0 and x for the answer",
+      "Check if mid*mid <= x to decide search direction",
+      "Return the largest value satisfying the condition",
+      "Time O(log N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_102",
+    "question": "Count the number of prime numbers less than a given non-negative number n.",
+    "domain": "DSA",
+    "topic": "Math",
+    "subtopic": "Count Primes",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use the Sieve of Eratosthenes to mark composites",
+      "Start marking multiples from p*p for efficiency",
+      "Count remaining unmarked numbers as primes",
+      "Time O(N log log N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_103",
+    "question": "Find all unique triplets in an array that sum to zero.",
+    "domain": "DSA",
+    "topic": "Two Pointer",
+    "subtopic": "3Sum",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Sort the array first, then fix one element and two-pointer the rest",
+      "Skip duplicate values to avoid repeated triplets",
+      "Move pointers based on whether current sum is too high or low",
+      "Time O(N^2), Space O(1) excluding output"
+    ]
+  },
+  {
+    "id": "dsa_104",
+    "question": "Given heights of vertical lines, find two lines that together with the x-axis form the container holding the most water.",
+    "domain": "DSA",
+    "topic": "Two Pointer",
+    "subtopic": "Container With Most Water",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use two pointers starting from both ends",
+      "Move the pointer with the smaller height inward, since moving the taller one can't increase area",
+      "Track max area seen at each step",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_105",
+    "question": "Sort an array of 0s, 1s, and 2s in-place without using a library sort.",
+    "domain": "DSA",
+    "topic": "Two Pointer",
+    "subtopic": "Sort Colors",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use the Dutch National Flag three-pointer approach",
+      "Swap elements into their correct region as you scan once",
+      "Avoid a second pass by handling swaps carefully",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_106",
+    "question": "Determine if you can reach the last index given max jump lengths at each position.",
+    "domain": "DSA",
+    "topic": "Greedy",
+    "subtopic": "Jump Game",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Track the furthest reachable index while iterating",
+      "If current index exceeds furthest reachable, return false early",
+      "Update furthest reachable as max(furthest, i+nums[i])",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_107",
+    "question": "Determine the starting gas station index to complete a circular route, if possible.",
+    "domain": "DSA",
+    "topic": "Greedy",
+    "subtopic": "Gas Station",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "If total gas is less than total cost, no solution exists",
+      "Track running tank total, reset start candidate whenever tank goes negative",
+      "The greedy reset works because a shortfall segment can't be part of a valid start",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_108",
+    "question": "Given tasks and a cooldown period, find the minimum time to finish all tasks.",
+    "domain": "DSA",
+    "topic": "Greedy",
+    "subtopic": "Task Scheduler",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Count frequency of the most frequent task(s)",
+      "Compute idle slots based on (maxFreq-1) * cooldown formula",
+      "Compare formula result with total task count to handle no-idle case",
+      "Time O(N) for counting, O(1) additional for formula"
+    ]
+  },
+  {
+    "id": "dsa_109",
+    "question": "Find the minimum number of intervals to remove to make the rest non-overlapping.",
+    "domain": "DSA",
+    "topic": "Greedy",
+    "subtopic": "Non-overlapping Intervals",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Sort intervals by end time",
+      "Greedily keep an interval if it doesn't overlap with the last kept one",
+      "Count removed intervals when overlap is detected",
+      "Time O(N log N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_110",
+    "question": "Find the element that appears only once in an array where every other element appears twice.",
+    "domain": "DSA",
+    "topic": "Bit Manipulation",
+    "subtopic": "Single Number",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "XOR all elements together",
+      "Pairs cancel out to zero, leaving only the unique element",
+      "No extra space needed unlike a hashmap approach",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_111",
+    "question": "For every number from 0 to n, count the number of set bits.",
+    "domain": "DSA",
+    "topic": "Bit Manipulation",
+    "subtopic": "Counting Bits",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use DP relation dp[i] = dp[i >> 1] + (i & 1)",
+      "This reuses previously computed results instead of recomputing from scratch",
+      "Explain why right-shifting relates to bits of a smaller number",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_112",
+    "question": "Add two integers without using the + or - operators.",
+    "domain": "DSA",
+    "topic": "Bit Manipulation",
+    "subtopic": "Sum of Two Integers Without +",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use XOR to compute sum without carry",
+      "Use AND shifted left by one to compute carry",
+      "Repeat until carry becomes zero",
+      "Time O(1) bounded by integer bit width"
+    ]
+  },
+  {
+    "id": "dsa_113",
+    "question": "Merge accounts belonging to the same person based on shared emails.",
+    "domain": "DSA",
+    "topic": "Union Find",
+    "subtopic": "Accounts Merge",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use union-find where each email is a node",
+      "Union all emails within the same account",
+      "Group emails by their root parent, then attach the owner's name",
+      "Time O(N \u03b1(N)) roughly, plus sorting for output"
+    ]
+  },
+  {
+    "id": "dsa_114",
+    "question": "Given n nodes and a list of edges, find the number of connected components in an undirected graph.",
+    "domain": "DSA",
+    "topic": "Union Find",
+    "subtopic": "Number of Connected Components",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use union-find, union endpoints of every edge",
+      "Count number of distinct roots remaining after processing all edges",
+      "Alternative: DFS/BFS marking visited components",
+      "Time O(E \u03b1(N)) with union-find"
+    ]
+  },
+  {
+    "id": "dsa_115",
+    "question": "Find the longest substring with all same characters after replacing at most k characters.",
+    "domain": "DSA",
+    "topic": "Sliding Window",
+    "subtopic": "Longest Repeating Character Replacement",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use a sliding window tracking frequency of characters in the window",
+      "Window is valid if (window length - count of most frequent char) <= k",
+      "Shrink window from left when invalid, otherwise expand right",
+      "Time O(N), Space O(26) for character counts"
+    ]
+  },
+  {
+    "id": "dsa_116",
+    "question": "Determine if a string contains a permutation of another string as a substring.",
+    "domain": "DSA",
+    "topic": "Sliding Window",
+    "subtopic": "Permutation in String",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use fixed-size sliding window equal to length of the pattern",
+      "Maintain frequency counts of pattern and current window",
+      "Slide window one character at a time, comparing counts",
+      "Time O(N), Space O(26)"
+    ]
+  },
+  {
+    "id": "dsa_117",
+    "question": "Traverse a matrix in spiral order and return the elements.",
+    "domain": "DSA",
+    "topic": "Matrix",
+    "subtopic": "Spiral Matrix",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Maintain four boundaries: top, bottom, left, right",
+      "Traverse right along top row, down along right column, left along bottom row, up along left column",
+      "Shrink boundaries after each direction and repeat until boundaries cross",
+      "Time O(rows*cols), Space O(1) excluding output"
+    ]
+  },
+  {
+    "id": "dsa_118",
+    "question": "If an element in a matrix is 0, set its entire row and column to 0, in place.",
+    "domain": "DSA",
+    "topic": "Matrix",
+    "subtopic": "Set Matrix Zeroes",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use the first row and first column as markers for zero rows/columns",
+      "Use separate flags for whether the first row/column themselves need zeroing",
+      "Second pass zeroes out cells based on markers",
+      "Time O(rows*cols), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_119",
+    "question": "Given a grid and a list of words, find all words that can be constructed from adjacent cells.",
+    "domain": "DSA",
+    "topic": "Matrix",
+    "subtopic": "Word Search II",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Build a trie from the list of words for efficient prefix checking",
+      "DFS from each cell, following trie nodes matching path characters",
+      "Prune branches where no trie node matches to cut down search space",
+      "Time complexity depends on grid size and word count, much faster than searching each word independently"
+    ]
+  },
+  {
+    "id": "dsa_120",
+    "question": "Design a cache with LRU eviction that also expires entries after a time-to-live.",
+    "domain": "DSA",
+    "topic": "Design",
+    "subtopic": "LRU Cache Variant with TTL",
+    "difficulty": "Hard",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Combine a doubly linked list + hashmap for LRU with a separate expiration timestamp per entry",
+      "Lazily check expiration on access, or use a background sweep with a min-heap of expiry times",
+      "Evict either due to LRU capacity or expiration, whichever applies first",
+      "Get/put remain close to O(1) amortized with occasional cleanup overhead"
+    ]
+  },
+  {
+    "id": "dsa_121",
+    "question": "Given a sorted list of words from an alien language, derive the order of letters.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Alien Dictionary",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Build a graph of character precedence by comparing adjacent words",
+      "Find the first differing character between consecutive words to create an edge",
+      "Perform topological sort on the character graph to get the letter order",
+      "Time O(C) where C is total content length, plus O(V+E) for topological sort"
+    ]
+  },
+  {
+    "id": "dsa_122",
+    "question": "Serialize and deserialize a tree where nodes can have any number of children.",
     "domain": "DSA",
     "topic": "Trees",
-    "subtopic": "Serialization",
-    "difficulty": "Hard",
-    "companies": ["Google", "Amazon"],
+    "subtopic": "Serialize N-ary Tree",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
     "strong_answer_hints": [
-      "Use preorder traversal with null markers for serialization",
-      "Use a queue or recursive pointer to rebuild during deserialization",
-      "Discuss tradeoffs vs BFS-based level order serialization",
+      "Use preorder traversal storing each node's value followed by its child count",
+      "Alternative: use a null/end marker after each node's children list",
+      "Deserialize by recursively reading value, child count, then that many subtrees",
       "Time O(N) for both operations"
     ]
   },
   {
-    "id": "dsa_023",
-    "question": "Given two strings, determine if one is an anagram of the other.",
-    "domain": "DSA",
-    "topic": "Strings",
-    "subtopic": "Hashing",
-    "difficulty": "Easy",
-    "companies": ["Microsoft", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "Use a frequency count array or hashmap for character counts",
-      "Compare counts between both strings",
-      "Alternative: sort both strings and compare",
-      "Time O(N) with hashmap vs O(N log N) with sorting"
-    ]
-  },
-  {
-    "id": "dsa_024",
-    "question": "How would you find all root-to-leaf paths in a binary tree that sum to a target value?",
-    "domain": "DSA",
-    "topic": "Trees",
-    "subtopic": "Backtracking",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Microsoft"],
-    "strong_answer_hints": [
-      "DFS while tracking the running sum and current path",
-      "When a leaf is reached, check if running sum equals target",
-      "Backtrack by removing the node from path after exploring",
-      "Time O(N), Space O(H) for recursion stack"
-    ]
-  },
-  {
-    "id": "dsa_025",
-    "question": "Explain quicksort and analyze its time complexity in the best, average, and worst case.",
-    "domain": "DSA",
-    "topic": "Sorting",
-    "subtopic": "Quicksort",
-    "difficulty": "Medium",
-    "companies": ["Google", "Goldman Sachs", "Microsoft"],
-    "strong_answer_hints": [
-      "Partition around a pivot, recursively sort each side",
-      "Best/average case O(N log N) with balanced partitions",
-      "Worst case O(N^2) when pivot is always smallest/largest (e.g. sorted input)",
-      "Mention randomized pivot selection to avoid worst case"
-    ]
-  },
-  {
-    "id": "dsa_026",
-    "question": "Given a grid of 1s and 0s, count the number of islands.",
-    "domain": "DSA",
-    "topic": "Graphs",
-    "subtopic": "Connected Components",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Google"],
-    "strong_answer_hints": [
-      "Use DFS or BFS to mark all connected land cells as visited",
-      "Increment island count each time a new unvisited land cell is found",
-      "Time O(rows*cols), Space O(rows*cols) for visited tracking or recursion stack",
-      "Mention iterative DFS with a stack to avoid recursion limits"
-    ]
-  },
-  {
-    "id": "dsa_027",
-    "question": "How would you design a data structure that supports insert, delete, and getRandom in O(1)?",
-    "domain": "DSA",
-    "topic": "Design",
-    "subtopic": "Hashing + Arrays",
-    "difficulty": "Hard",
-    "companies": ["Google", "Amazon"],
-    "strong_answer_hints": [
-      "Use a dynamic array for O(1) random access plus a hashmap of value to index",
-      "On delete, swap target with last element then pop, update hashmap",
-      "This avoids O(N) shifting that a plain array delete would require",
-      "All three operations average O(1)"
-    ]
-  },
-  {
-    "id": "dsa_028",
-    "question": "Explain the difference between BFS and DFS for tree and graph traversal, including their space complexity.",
-    "domain": "DSA",
-    "topic": "Graphs",
-    "subtopic": "BFS/DFS",
-    "difficulty": "Medium",
-    "companies": ["Microsoft", "Amazon"],
-    "strong_answer_hints": [
-      "BFS uses a queue and explores level by level",
-      "DFS uses a stack or recursion and explores depth first",
-      "BFS space complexity relates to the widest level, DFS relates to depth",
-      "Choice depends on whether shortest path or exhaustive search is needed"
-    ]
-  },
-  {
-    "id": "dsa_029",
-    "question": "Given a number, find if it is a power of two using bit manipulation.",
-    "domain": "DSA",
-    "topic": "Bit Manipulation",
-    "subtopic": "Bitwise Tricks",
-    "difficulty": "Easy",
-    "companies": ["Microsoft", "Goldman Sachs"],
-    "strong_answer_hints": [
-      "A power of two has exactly one set bit",
-      "Use n & (n-1) == 0 to check, with n > 0 guard",
-      "Explain why n & (n-1) clears the lowest set bit",
-      "Time O(1)"
-    ]
-  },
-  {
-    "id": "dsa_030",
-    "question": "How would you implement a trie and what problems is it useful for?",
-    "domain": "DSA",
-    "topic": "Trees",
-    "subtopic": "Trie",
-    "difficulty": "Medium",
-    "companies": ["Google", "Amazon"],
-    "strong_answer_hints": [
-      "Each node has children mapped by character, plus an end-of-word flag",
-      "Useful for prefix search, autocomplete, and dictionary lookups",
-      "Insert and search are O(L) where L is word length",
-      "Compare space tradeoffs vs a hashset of words"
-    ]
-  },
-  {
-    "id": "dsa_031",
-    "question": "Given a sorted rotated array, how would you search for a target value?",
+    "id": "dsa_123",
+    "question": "Merge two sorted arrays in-place where one has extra space at the end.",
     "domain": "DSA",
     "topic": "Arrays",
-    "subtopic": "Binary Search",
-    "difficulty": "Medium",
-    "companies": ["Amazon", "Google", "Microsoft"],
+    "subtopic": "Merge Sorted Array",
+    "difficulty": "Easy",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
     "strong_answer_hints": [
-      "Modified binary search: determine which half is sorted",
-      "Check if target lies within the sorted half's range",
-      "Narrow search space accordingly each iteration",
-      "Time O(log N)"
+      "Fill from the back to avoid overwriting unprocessed elements",
+      "Compare tail elements of both arrays, place the larger one at the current end position",
+      "Continue until one array is fully merged, copy remaining of the other if needed",
+      "Time O(N+M), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_124",
+    "question": "Return an array where each element is the product of all other elements, without using division.",
+    "domain": "DSA",
+    "topic": "Arrays",
+    "subtopic": "Product of Array Except Self",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Compute prefix product array (product of all elements before i)",
+      "Compute suffix product array (product of all elements after i) in a second pass",
+      "Multiply prefix and suffix for each index, can be done in O(1) extra space using output array",
+      "Time O(N), Space O(1) excluding output array"
+    ]
+  },
+  {
+    "id": "dsa_125",
+    "question": "Design a system that shortens long URLs and redirects short URLs back to the original.",
+    "domain": "DSA",
+    "topic": "Design",
+    "subtopic": "Design a URL Shortener",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Use a counter or hash-based approach to generate short unique codes, base62 encode them",
+      "Store mapping in a key-value store from short code to original URL",
+      "Discuss handling collisions and custom aliases",
+      "Consider caching frequently accessed URLs for faster redirects"
+    ]
+  },
+  {
+    "id": "dsa_126",
+    "question": "Traverse a binary tree in zigzag order, alternating direction at each level.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Binary Tree Zigzag Level Order",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Microsoft"
+    ],
+    "strong_answer_hints": [
+      "Use level order BFS traversal with a queue",
+      "Reverse the order of values at alternate levels before adding to result",
+      "Alternative: use a deque and insert from front/back based on level parity",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_127",
+    "question": "Find cells in a grid from which water can flow to both the Pacific and Atlantic oceans.",
+    "domain": "DSA",
+    "topic": "Graphs",
+    "subtopic": "Pacific Atlantic Water Flow",
+    "difficulty": "Medium",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Run DFS/BFS from all Pacific-bordering cells marking reachable cells",
+      "Run DFS/BFS from all Atlantic-bordering cells marking reachable cells separately",
+      "Intersection of both reachable sets is the answer",
+      "Time O(rows*cols)"
+    ]
+  },
+  {
+    "id": "dsa_128",
+    "question": "Find the maximum sum of a subarray in a circular array.",
+    "domain": "DSA",
+    "topic": "Dynamic Programming",
+    "subtopic": "Maximum Subarray Sum Circular",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Compute normal Kadane's max subarray sum",
+      "Compute total sum minus minimum subarray sum for the wrap-around case",
+      "Handle edge case where all elements are negative separately",
+      "Time O(N), Space O(1)"
+    ]
+  },
+  {
+    "id": "dsa_129",
+    "question": "Implement a calculator that evaluates a string expression with +, -, parentheses.",
+    "domain": "DSA",
+    "topic": "Stacks/Queues",
+    "subtopic": "Basic Calculator",
+    "difficulty": "Hard",
+    "companies": [
+      "Google",
+      "Amazon"
+    ],
+    "strong_answer_hints": [
+      "Use a stack to store previous results and sign before encountering '('",
+      "Track a running result and current sign as you parse characters",
+      "On ')', combine with value popped from stack",
+      "Time O(N), Space O(N)"
+    ]
+  },
+  {
+    "id": "dsa_130",
+    "question": "Partition a string such that every substring is a palindrome, return all possible partitions.",
+    "domain": "DSA",
+    "topic": "Backtracking",
+    "subtopic": "Palindrome Partitioning",
+    "difficulty": "Medium",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Backtrack trying every prefix, only recursing further if the prefix is a palindrome",
+      "Precompute palindrome status of substrings with DP to speed up checks",
+      "Build partitions incrementally, backtrack after exploring",
+      "Time complexity exponential in worst case, palindrome check optimized with DP table"
+    ]
+  },
+  {
+    "id": "dsa_131",
+    "question": "Return the vertical order traversal of a binary tree's nodes.",
+    "domain": "DSA",
+    "topic": "Trees",
+    "subtopic": "Vertical Order Traversal",
+    "difficulty": "Hard",
+    "companies": [
+      "Amazon",
+      "Google"
+    ],
+    "strong_answer_hints": [
+      "Perform BFS or DFS tracking column and row index for each node",
+      "Group node values by column index in a map",
+      "Within a column, sort by row then by value for ties",
+      "Time O(N log N) due to sorting within columns"
     ]
   }
 ]
